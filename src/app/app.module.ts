@@ -8,6 +8,7 @@ import { CardComponent } from './card/card.component';
 import { InputModule } from "./input/input.module";
 import { CheckboxModule } from "./checkbox/checkbox.module";
 import { SearchComponent } from './search/search.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { SearchComponent } from './search/search.component';
         ButtonComponent,
         CardComponent,
         SearchComponent,
+        HeaderComponent,
         
     ],
     providers: [],
