@@ -1,0 +1,10 @@
+<button class="btn btn-primary" (click) = "onChangeColor()">change color</button>
+  <button class="btn btn-primary" (click) = "onAddCard()">Add Card</button>
+  <app-card 
+  [ngStyle]="{backgroundColor:cardBackgroundColor}"
+  *ngFor="let card of cards"
+  [title] = "card.title"
+  [isAdmin] = "card.isAdmin"
+  
+  >
+</app-card>
