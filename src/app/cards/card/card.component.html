@@ -1,0 +1,8 @@
+<div>
+    <app-avatar [image]="imageSource"></app-avatar>
+    <h3>{{title}}</h3>
+    <app-checkbox [isAdmin] = "isAdmin"
+    (isAdminChange) = "onIsAdminChange($event)"
+    ></app-checkbox>
+    <input type="text" (input) = "onChangeTitle($event)">
+</div>

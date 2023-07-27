@@ -1,5 +1,13 @@
-><div>
-    <input type="checkbox">
-    <label>Checkbox</label>
+<div>
+    <input type="checkbox"
+    [checked] = "isAdmin"
+    (change) = "onIsAdminChange($event)"
+    >
+    <ng-container *ngIf = "isAdmin; else userLabel">
+        <label>Admin</label>
+    </ng-container>
+    <ng-template #userLabel>
+        <label>User</label>
+    </ng-template>  
     
 </div>
