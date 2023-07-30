@@ -14,9 +14,18 @@ export class AppComponent {
     { id: 4, name: 'ddd' },  ];
 
   searchPlaceholder="Search";
+  imageSource:string = '../assets/woman.png';
+  itemToAdd:string = '';
 
   onNavigate(tab:string) {
     this.currentTab = tab;
+  }
+  onInputValueChange(value: any) {
+    this.itemToAdd = value;
+  }
+
+  addItemToList() {
+    this.listItems.push({ id: this.listItems.length + 1, name:  this.itemToAdd });
   }
 
 }

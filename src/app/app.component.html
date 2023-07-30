@@ -1,9 +1,14 @@
 
 <!-- Toolbar -->
-<div class="toolbar" role="banner">
-  <app-header (tabSelected) = "onNavigate($event)"></app-header>
-  <app-cards *ngIf="currentTab==='cards'"></app-cards>
-  <app-search *ngIf="currentTab==='search'"
+<div className="app-root-container" role="banner">
+
+  <app-avatar [image]="imageSource"></app-avatar>
+  <app-input
+  [placeholder] = "'add item to list'"
+  (inputValueChange)="onInputValueChange($event)"
+  ></app-input>
+  <app-button [buttonLabel]="'Add Item'" (buttonClick)="addItemToList()"></app-button>
+  <app-search
   [originalListItems]="listItems"
   [searchPlaceholder]="searchPlaceholder"
   ></app-search>

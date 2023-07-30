@@ -6,11 +6,11 @@ import { Component, EventEmitter, Output, Input } from '@angular/core';
   styleUrls: ['./input.component.css']
 })
 export class InputComponent {
-  @Output() inputValue = new EventEmitter<string>();
-  @Input() inputPlaceholder: string = '';
-  @Input() inputType: string = 'text';
+  @Output() value = new EventEmitter<string>();
+  @Input() placeholder: string = '';
+  @Input() type: string = 'text';
 
  onInputValueChange(event: any) {
-    this.inputValue.emit(event.target.value);
+    this.value.emit(event.target.value);
   }
 }

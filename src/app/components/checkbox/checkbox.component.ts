@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import {userRoles} from '../../consts/userRoles';
+import {userRoles} from '../../../consts/userRoles';
 
 @Component({
   selector: 'app-checkbox',
