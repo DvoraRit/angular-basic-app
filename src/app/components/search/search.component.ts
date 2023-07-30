@@ -10,7 +10,12 @@ export class SearchComponent {
  @Input() searchPlaceholder: string = '';
   listItems = [...this.originalListItems];
   searchType="search";
-  
+
+  constructor() { 
+    console.log("constructor");
+
+  }
+
   ngOnChanges(){
     console.log("ngOnChanges");
     this.listItems = [...this.originalListItems];

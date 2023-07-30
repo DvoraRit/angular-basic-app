@@ -6,5 +6,5 @@ import { Component, Input, OnChanges } from '@angular/core';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent {
-  @Input() class = '';
+  @Input() class = 'card-container';
 }

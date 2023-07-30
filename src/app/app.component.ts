@@ -1,5 +1,6 @@
 import { Component, OnInit, OnChanges  } from '@angular/core';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -24,6 +25,9 @@ export class AppComponent {
 
   addItemToList() { 
     this.listItems.push({ id: this.listItems.length + 1, name:  this.itemToAdd });    
+    this.itemToAdd = '';
+    console.log(this.listItems);
+    
   }
   onCheckboxChange(isChecked: any) {
     if(isChecked){
