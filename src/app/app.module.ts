@@ -11,7 +11,7 @@ import { CheckboxComponent } from "./components/checkbox/checkbox.component";
 import { SearchComponent } from './components/search/search.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CardComponent } from './components/card/card.component';
-
+import {PermissionDirective} from './directives/premission.directive';
 
 @NgModule({
     declarations: [
@@ -22,13 +22,14 @@ import { CardComponent } from './components/card/card.component';
         CheckboxComponent,
         InputComponent,
         AvatarComponent,
-        CardComponent
+        PermissionDirective
     ],
     providers: [],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
         FormsModule,
+        CardComponent
     ]
 })
 export class AppModule { 

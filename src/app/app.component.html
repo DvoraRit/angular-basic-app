@@ -1,12 +1,31 @@
 <div class="app-root-container">
+<h2>Welcome {{currentUserRole}}</h2>
   <app-avatar [image]="imageSource"></app-avatar>
-  <app-checkbox [label]="'switch avatar'" (isChange)="onCheckboxChange($event)"></app-checkbox>
+  <app-checkbox [label]="switchLabel" (isChange)="onCheckboxChange($event)"></app-checkbox>
   <app-input [placeholder]="'add item to list'" (value)="onInputValueChange($event)"></app-input>
   <app-button [buttonLabel]="'Add Item'" (buttonClick)="addItemToList()"></app-button>
+  <app-button [buttonLabel]="tuggleCardsLabel" (buttonClick)="onShowCardClick()"></app-button>
   <app-search [originalListItems]="listItems" [searchPlaceholder]="searchPlaceholder"></app-search>
-  <app-card>
-    <app-avatar [image]="imageSourceForCard"></app-avatar>
-    <h3>Card Title</h3>
-    <h6>Card context here is some context</h6>
-  </app-card>
+<div class="cards-container" 
+
+>
+    <app-card
+    [ngStyle]="{'display': isShowCard ? 'block' : 'none'}"
+    [isDraggable]="true"
+    >
+      <app-avatar 
+      [image]="imageSourceForCard"
+      ></app-avatar>
+      <h3>Drag me</h3>
+      <h6>I can be dragged, drag me everywhere</h6>
+    </app-card>
+    <app-card
+    (mouseenter) = "toggleHoverCard()"
+    (mouseleave) = "toggleHoverCard()"
+    [class.rotate-animation]="isHoverCard"
+    >
+      <h3>Hover me</h3>
+      <h6>hover me I'll fleep but I cant be fleeped</h6>
+    </app-card>
+</div>
 </div>

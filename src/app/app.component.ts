@@ -1,10 +1,9 @@
 import { Component, OnInit, OnChanges  } from '@angular/core';
-
-
+import { userRoles } from 'src/consts/userRoles';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   listItems = [
@@ -13,11 +12,20 @@ export class AppComponent {
     { id: 3, name: 'horse' },
     { id: 4, name: 'chicken' },  ];
 
-  searchPlaceholder="Search";
+  searchPlaceholder:string="Search";
   imageSource:string = '../assets/woman.png';
   imageSourceForCard:string = '../assets/woman.png';
   itemToAdd:string = '';
-    
+  tuggleCardsLabel:string = 'Remove Card';
+  isShowCard:boolean = true;
+  isHoverCard:boolean = false;
+  currentUserRole:string = "";
+  switchLabel:string = '';
+
+  constructor() {
+    this.currentUserRole = userRoles.user;
+    this.switchLabel ='Switch to Admin';
+  }
 
   onInputValueChange(value: any) {    
     this.itemToAdd = value;
@@ -26,16 +34,27 @@ export class AppComponent {
   addItemToList() { 
     this.listItems.push({ id: this.listItems.length + 1, name:  this.itemToAdd });    
     this.itemToAdd = '';
-    console.log(this.listItems);
     
   }
   onCheckboxChange(isChecked: any) {
-    if(isChecked){
-      this.imageSource = '../assets/woman2.jpg';
+    if(isChecked){//admin
+      this.currentUserRole = userRoles.admin;
+      this.switchLabel = 'Switch to User';
     }else{
-      this.imageSource = '../assets/woman.png';
+      this.currentUserRole = userRoles.user;
+      this.switchLabel = 'Switch to Admin';
     }
     
   }
+
+  onShowCardClick() {
+    this.isShowCard = !this.isShowCard;
+    this.tuggleCardsLabel = this.isShowCard ? 'Remove Card' : 'Show Card';
+  }
+
+  toggleHoverCard() {
+    this.isHoverCard = !this.isHoverCard;
+  }
+
 
 }

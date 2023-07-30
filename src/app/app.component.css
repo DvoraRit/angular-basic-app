@@ -4,3 +4,19 @@
     align-items: center;
     margin: 8px;
 }
+.cards-container{
+    display:flex;
+}
+
+@keyframes rotate360 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .rotate-animation {
+    animation: rotate360 2s linear forwards; /* Adjust the animation duration as desired */
+  }
