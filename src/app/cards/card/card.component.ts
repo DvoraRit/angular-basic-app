@@ -20,7 +20,6 @@ export class CardComponent {
   }
 
   ngOnChanges() {
-    debugger
     this.checkBoxLabel = this.isAdmin? userRoles.admin : userRoles.user;
   }
 
