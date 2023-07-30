@@ -2,7 +2,9 @@
     <app-input 
     [type]="searchType" 
     [placeholder]="searchPlaceholder"
-    (input)="onSearchChange($event)"></app-input>
+    (input)="onSearchChange($event)"
+    #filter
+    ></app-input>
     <ul>
         <li *ngFor="let item of listItems">{{ item.name }}</li>
     </ul>

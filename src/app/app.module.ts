@@ -10,7 +10,7 @@ import { InputComponent } from "./components/input/input.component";
 import { CheckboxComponent } from "./components/checkbox/checkbox.component";
 import { SearchComponent } from './components/search/search.component';
 import { HeaderComponent } from './components/header/header.component';
-// import { CardComponent } from './components/';
+import { CardComponent } from './components/card/card.component';
 
 
 @NgModule({
@@ -22,6 +22,7 @@ import { HeaderComponent } from './components/header/header.component';
         CheckboxComponent,
         InputComponent,
         AvatarComponent,
+        CardComponent
     ],
     providers: [],
     bootstrap: [AppComponent],

@@ -1,4 +1,6 @@
-app-root-container{
+.app-root-container{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin: 8px;
 }

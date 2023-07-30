@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-search',
@@ -10,11 +10,16 @@ export class SearchComponent {
  @Input() searchPlaceholder: string = '';
   listItems = [...this.originalListItems];
   searchType="search";
-
+  
+  ngOnChanges(){
+    console.log("ngOnChanges");
+    this.listItems = [...this.originalListItems];
+  }
 
   ngOnInit(){
     this.listItems = [...this.originalListItems];
   }
+
 
   onSearchChange(searchEvent: Event): void {
     const searchValue = (searchEvent.target as HTMLInputElement).value;
@@ -23,7 +28,7 @@ export class SearchComponent {
       return;
     }
     this.listItems = this.listItems.filter((item) => {
-      return item.name.toLowerCase().indexOf(searchValue.toLowerCase()) > -1;
+      return item.name.toLowerCase().includes(searchValue.toLowerCase());
     });
   }
 }
