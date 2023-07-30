@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-avatar',
-  template: '<img [src]="image" alt="Avatar">',
+  templateUrl: './avatar.component.html',
   styleUrls: ['./avatar.component.css']
 })
 export class AvatarComponent {

@@ -16,6 +16,7 @@ export class CardsComponent{
     }
   ];
   cardBackgroundColor = 'white';
+  userName='';
 
   constructor(private changeDetectorRef: ChangeDetectorRef) {}
 
@@ -26,14 +27,18 @@ export class CardsComponent{
     this.cardBackgroundColor =  `rgb(${r},${g},${b})`;
     this.changeDetectorRef.detectChanges();
   }
+  onChangeUserName(value: string):void{
+    this.userName = value;
+  }
 
   onAddCard():void{
     this.cards.push({
       id: this.cards.length + 1,
-      title: `Card ${this.cards.length + 1}`,
+      title: this.userName,
       imageSource:'../assets/woman.png',
       isAdmin: false
     });
+    this.userName = '';
   }
 
 }

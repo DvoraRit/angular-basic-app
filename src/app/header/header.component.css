@@ -1,0 +1,5 @@
+.nav-item active {
+  background-color: #007bff;
+  border-radius: 5px;
+  color: #000;
+}

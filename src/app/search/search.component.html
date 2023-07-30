@@ -1,5 +1,8 @@
 <div>
-    <input type="search" placeholder="Search" (change)="onSearchChange($event)">
+    <app-input 
+    [inputType]="searchType" 
+    [inputPlaceholder]="searchPlaceholder"
+    (input)="onSearchChange($event)"></app-input>
     <ul>
         <li *ngFor="let item of listItems">{{ item.name }}</li>
     </ul>

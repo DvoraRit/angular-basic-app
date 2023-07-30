@@ -1,7 +1,10 @@
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-  <app-header></app-header>
-  <app-cards></app-cards>
-  <app-search></app-search>
+  <app-header (tabSelected) = "onNavigate($event)"></app-header>
+  <app-cards *ngIf="currentTab==='cards'"></app-cards>
+  <app-search *ngIf="currentTab==='search'"
+  [originalListItems]="listItems"
+  [searchPlaceholder]="searchPlaceholder"
+  ></app-search>
 </div>

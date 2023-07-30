@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {userRoles} from '../../consts/userRoles';
 
 @Component({
   selector: 'app-checkbox',
@@ -6,9 +7,14 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./checkbox.component.css']
 })
 export class CheckboxComponent {
-  @Input() isAdmin: boolean = false;
+  @Output() isChange = new EventEmitter<Event>();
+  @Input() isChecked: boolean = false;
+  @Input() label: string = 'Checkbox Label';
+  userRoles = userRoles;
 
-  onIsAdminChange(event: any) {
-    this.isAdmin = event.target.checked;
+  onIsChange(event: any) {
+    this.isChecked = event.target.checked;
+    this.isChange.emit(event.target.checked);
+    
   }
 }

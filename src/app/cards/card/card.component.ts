@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-
+import { Component, Input, OnChanges } from '@angular/core';
+import {userRoles} from '../../../consts/userRoles';
 
 @Component({
   selector: 'app-card',
@@ -11,15 +11,31 @@ export class CardComponent {
   @Input() isAdmin: boolean = false;
   id: number = 1;
   imageSource: string = '../assets/woman.png';
+  hover: boolean = false;
+  checkBoxLabel = this.isAdmin? userRoles.admin : userRoles.user;
 
-  onUpdateCardTitle(event: any) {
-    this.title = event.target.value;
+  constructor() { 
+    this.checkBoxLabel = this.isAdmin? userRoles.admin : userRoles.user;
+
   }
 
-  onIsAdminChange(event: any) {
-    this.isAdmin = event.target.checked;
+  ngOnChanges() {
+    debugger
+    this.checkBoxLabel = this.isAdmin? userRoles.admin : userRoles.user;
   }
-  onChangeTitle(event: any) {
-    this.title = event.target.value;
+
+  onMouseEnter() {
+    this.hover = true;
+  }
+  onMouseLeave() {
+    this.hover = false;
+  }
+
+  onIsAdminChange(selected: any) {
+    this.isAdmin = selected;
+    this.checkBoxLabel = this.isAdmin? userRoles.admin : userRoles.user;
+  }
+  onChangeTitle(value: any) {
+    this.title =value;
   }
 }

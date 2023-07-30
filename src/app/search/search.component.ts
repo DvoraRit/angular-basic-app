@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-search',
@@ -6,12 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent {
-  originalListItems = [
-    { id: 1, name: 'aaa' },
-    { id: 2, name: 'bbb' },
-    { id: 3, name: 'ccc' },
-  ]
+ @Input() originalListItems: any[] = [];
+ @Input() searchPlaceholder: string = '';
   listItems = [...this.originalListItems];
+  searchType="search";
+
+
+  ngOnInit(){
+    this.listItems = [...this.originalListItems];
+  }
 
   onSearchChange(searchEvent: Event): void {
     const searchValue = (searchEvent.target as HTMLInputElement).value;
@@ -21,7 +24,6 @@ export class SearchComponent {
     }
     this.listItems = this.listItems.filter((item) => {
       return item.name.toLowerCase().indexOf(searchValue.toLowerCase()) > -1;
-      // return item.name===searchValue;
     });
   }
 }

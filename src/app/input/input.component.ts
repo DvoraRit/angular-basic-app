@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-input',
@@ -6,7 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./input.component.css']
 })
 export class InputComponent {
-  onUpdateCardTitle(event: Event) {
-    console.log('Card title updated: ', event.target);
+  @Output() inputValue = new EventEmitter<string>();
+  @Input() inputPlaceholder: string = '';
+  @Input() inputType: string = 'text';
+
+ onInputValueChange(event: any) {
+    this.inputValue.emit(event.target.value);
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -6,7 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./button.component.css']
 })
 export class ButtonComponent {
-  onCreateCard() {
-    console.log('Card created!');
+
+  @Input() buttonLabel: string = 'Button Title';
+  @Output() buttonClick = new EventEmitter<Event>();
+  onClick() {
+    this.buttonClick.emit();
   }
 }
