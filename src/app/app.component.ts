@@ -26,6 +26,8 @@ export class AppComponent {
   constructor() {
     if (!localStorage.getItem('userRole')) {
       localStorage.setItem('userRole', userRoles.user);
+      this.currentUserRole = userRoles.user;
+      this.switchLabel = 'Switch to Admin';
     } else {
       this.currentUserRole = localStorage.getItem('userRole') || '';
       this.switchLabel =
