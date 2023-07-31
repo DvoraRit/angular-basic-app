@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges  } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { userRoles } from 'src/consts/userRoles';
 @Component({
   selector: 'app-root',
@@ -10,48 +10,53 @@ export class AppComponent {
     { id: 1, name: 'cat' },
     { id: 2, name: 'dog' },
     { id: 3, name: 'horse' },
-    { id: 4, name: 'chicken' },  ];
+    { id: 4, name: 'chicken' },
+  ];
 
-  searchPlaceholder:string="Search";
-  imageSource:string = '../assets/woman.png';
-  imageSourceForCard:string = '../assets/woman.png';
-  itemToAdd:string = '';
-  tuggleCardsLabel:string = 'Remove Card';
-  isShowCard:boolean = true;
-  isHoverCard:boolean = false;
-  currentUserRole:string = "";
-  switchLabel:string = '';
+  searchPlaceholder: string = 'Search';
+  imageSource: string = '../assets/woman.png';
+  imageSourceForCard: string = '../assets/woman.png';
+  itemToAdd: string = '';
+  tuggleCardsLabel: string = 'Remove Card';
+  isShowCard: boolean = true;
+  isHoverCard: boolean = false;
+  currentUserRole: string = '';
+  switchLabel: string = '';
 
-  constructor() {    
-    if(!localStorage.getItem('userRole')){
+  constructor() {
+    if (!localStorage.getItem('userRole')) {
       localStorage.setItem('userRole', userRoles.user);
-    }
-    else{
-      this.currentUserRole = localStorage.getItem('userRole')||"";
-      this.switchLabel = this.currentUserRole===userRoles.user?'Switch to Admin':"Switch to User";
+    } else {
+      this.currentUserRole = localStorage.getItem('userRole') || '';
+      this.switchLabel =
+        this.currentUserRole === userRoles.user
+          ? 'Switch to Admin'
+          : 'Switch to User';
     }
   }
 
-  onInputValueChange(value: any) {    
+  onInputValueChange(value: any) {
     this.itemToAdd = value;
   }
 
-  addItemToList() { 
-    this.listItems.push({ id: this.listItems.length + 1, name:  this.itemToAdd });    
+  addItemToList() {
+    this.listItems.push({
+      id: this.listItems.length + 1,
+      name: this.itemToAdd,
+    });
     this.itemToAdd = '';
-    
   }
   onCheckboxChange(isChecked: any) {
-    if(isChecked){//admin
+    if (isChecked) {
+      //admin
       this.currentUserRole = userRoles.admin;
       this.switchLabel = 'Switch to User';
       localStorage.setItem('userRole', userRoles.admin);
-    }else{
+    } else {
       this.currentUserRole = userRoles.user;
       this.switchLabel = 'Switch to Admin';
       localStorage.setItem('userRole', userRoles.user);
     }
-    
   }
 
   onShowCardClick() {
@@ -62,6 +67,4 @@ export class AppComponent {
   toggleHoverCard() {
     this.isHoverCard = !this.isHoverCard;
   }
-
-
 }
