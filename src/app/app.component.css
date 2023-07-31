@@ -18,5 +18,5 @@
   }
   
   .rotate-animation {
-    animation: rotate360 2s linear forwards; /* Adjust the animation duration as desired */
+    animation: rotate360 2s linear forwards;
   }

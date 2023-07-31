@@ -22,9 +22,14 @@ export class AppComponent {
   currentUserRole:string = "";
   switchLabel:string = '';
 
-  constructor() {
-    this.currentUserRole = userRoles.user;
-    this.switchLabel ='Switch to Admin';
+  constructor() {    
+    if(!localStorage.getItem('userRole')){
+      localStorage.setItem('userRole', userRoles.user);
+    }
+    else{
+      this.currentUserRole = localStorage.getItem('userRole')||"";
+      this.switchLabel = this.currentUserRole===userRoles.user?'Switch to Admin':"Switch to User";
+    }
   }
 
   onInputValueChange(value: any) {    
@@ -40,9 +45,11 @@ export class AppComponent {
     if(isChecked){//admin
       this.currentUserRole = userRoles.admin;
       this.switchLabel = 'Switch to User';
+      localStorage.setItem('userRole', userRoles.admin);
     }else{
       this.currentUserRole = userRoles.user;
       this.switchLabel = 'Switch to Admin';
+      localStorage.setItem('userRole', userRoles.user);
     }
     
   }

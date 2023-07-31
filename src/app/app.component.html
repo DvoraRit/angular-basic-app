@@ -6,9 +6,9 @@
   <app-button [buttonLabel]="'Add Item'" (buttonClick)="addItemToList()"></app-button>
   <app-button [buttonLabel]="tuggleCardsLabel" (buttonClick)="onShowCardClick()"></app-button>
   <app-search [originalListItems]="listItems" [searchPlaceholder]="searchPlaceholder"></app-search>
-<div class="cards-container" 
-
->
+  <div class="cards-container" 
+  appPermission
+  >
     <app-card
     [ngStyle]="{'display': isShowCard ? 'block' : 'none'}"
     [isDraggable]="true"
@@ -25,7 +25,7 @@
     [class.rotate-animation]="isHoverCard"
     >
       <h3>Hover me</h3>
-      <h6>hover me I'll fleep but I cant be fleeped</h6>
+      <h6>hover me I'll fleep but I cant be dragged</h6>
     </app-card>
 </div>
 </div>
