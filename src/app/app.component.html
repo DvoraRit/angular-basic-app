@@ -6,7 +6,7 @@
   <app-button [buttonLabel]="'Add Item'" (buttonClick)="addItemToList()"></app-button>
   <app-button [buttonLabel]="tuggleCardsLabel" (buttonClick)="onShowCardClick()"></app-button>
   <app-search [originalListItems]="listItems" [searchPlaceholder]="searchPlaceholder"></app-search>
-  <div class="cards-container" appPermission>
+  <div class="cards-container" appPermission [currentPermission]="currentUserRole">
     <app-card [ngStyle]="{'display': isShowCard ? 'block' : 'none'}" [isDraggable]="true">
       <app-avatar [image]="imageSourceForCard"></app-avatar>
       <h3>Drag me</h3>

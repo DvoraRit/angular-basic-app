@@ -1,37 +1,41 @@
 import { userRoles } from './../../consts/userRoles';
-import { Directive, Renderer2, OnInit, ElementRef } from '@angular/core';
+import {
+  Directive,
+  Renderer2,
+  OnInit,
+  ElementRef,
+  HostListener,
+  HostBinding,
+  Input,
+  OnChanges,
+} from '@angular/core';
 
 @Directive({
   selector: '[appPermission]',
 })
 export class PermissionDirective implements OnInit {
-  constructor(private renderer: Renderer2, private elementRef: ElementRef) {}
+  @Input() currentPermission: string | undefined;
+  @HostBinding('style.visibility') visibility: string | undefined;
 
   ngOnInit(): void {
     this.updateElementStyle();
-    window.addEventListener('storage', this.onStorageChange.bind(this));
   }
 
-  private onStorageChange(event: StorageEvent): void {
-    if (event.key === 'userRole') {
-      this.updateElementStyle();
-    }
+  ngOnChanges(): void {
+    this.updateElementStyle();
   }
+
+//   @HostListener('window:storage')
+//   onStorageChange(event: StorageEvent) {
+//     this.updateElementStyle();
+//   }
 
   private updateElementStyle(): void {
-    const isAdmin = localStorage.getItem('userRole') === userRoles.admin;
+    const isAdmin = this.currentPermission === userRoles.admin;
     if (isAdmin) {
-      this.renderer.setStyle(
-        this.elementRef.nativeElement,
-        'visibility',
-        'visible'
-      );
+      this.visibility = 'visible';
     } else {
-      this.renderer.setStyle(
-        this.elementRef.nativeElement,
-        'visibility',
-        'hidden'
-      );
+      this.visibility = 'hidden';
     }
   }
 }
