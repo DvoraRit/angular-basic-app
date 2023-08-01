@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import {ICard} from '../../interfaces/card.interface';
 import {CARDS} from './cardsItems';
 import {Router} from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+
 import {urls} from '../../../consts/urls';
+import { CardsService } from 'src/app/services/cardsService.service';
 
 @Component({
   selector: 'app-cards',
@@ -14,20 +15,20 @@ export class CardsComponent {
   cards: ICard[] = [];
   isLoading: boolean = false;
 
-  constructor(private router: Router, private http: HttpClient) { 
-    this.getCards();
+  constructor(private router: Router, private cardsService: CardsService) { 
+    this.getCards()
+
   }
 
   showDetails(card: ICard) {
-    //navigate to card details
     this.router.navigate(['/cards', card.id]);
   }
 
   getCards() {
     this.isLoading = true;
-    this.http.get(urls.baseUrl + 'cards.json').subscribe((data: any) => {
-      this.isLoading = false;
-      this.cards = data;
+    this.cardsService.getCards().subscribe((data: any) => {
+     this.isLoading = false;
+      this.cards= data;
     });
   }
   addCard(){

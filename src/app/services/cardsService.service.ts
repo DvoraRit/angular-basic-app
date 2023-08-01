@@ -1,11 +1,15 @@
 import {ICard} from '../interfaces/card.interface';
 import {CARDS} from '../pages/cards/cardsItems';
-
+import { HttpClient } from '@angular/common/http';
+import { urls } from '../../consts/urls';
+import { Injectable } from '@angular/core';
+@Injectable()
 export class CardsService {
-    cards = CARDS;
-    constructor() { }
+    cards:ICard[] = [];
+    constructor(private http: HttpClient) {}
+
     getCards() {
-        return CARDS;
+    return this.http.get(urls.baseUrl + 'cards.json');
     }
     addCard(card: ICard) {
         this.cards.push(card);
