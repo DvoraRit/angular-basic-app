@@ -14,7 +14,7 @@ export class CardDetailsComponent {
     this.card = {
       id: this.route.snapshot.params['id'],
       title:"Card title",
-      description:"Card description",
+      sub_title:"Card description",
       image:"https://picsum.photos/200/300"
     };
 

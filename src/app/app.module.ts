@@ -12,7 +12,7 @@ import { SearchComponent } from './components/search/search.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CardComponent } from './components/card/card.component';
 import {PermissionDirective} from './directives/premission.directive';
-
+import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
 import { CardsComponent } from './pages/cards/cards.components';
 import { CardsService } from './services/cardsService.service';
@@ -41,7 +41,8 @@ import { AppRoutingModule } from './app-routing.module';
         BrowserModule,
         FormsModule,
         CardComponent,
-        AppRoutingModule
+        AppRoutingModule,
+        HttpClientModule
     ]
 })
 export class AppModule { 
