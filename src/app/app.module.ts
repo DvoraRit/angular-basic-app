@@ -9,7 +9,6 @@ import { ButtonComponent } from './components/button/button.component';
 import { InputComponent } from "./components/input/input.component";
 import { CheckboxComponent } from "./components/checkbox/checkbox.component";
 import { SearchComponent } from './components/search/search.component';
-import { HeaderComponent } from './components/header/header.component';
 import { CardComponent } from './components/card/card.component';
 import {PermissionDirective} from './directives/premission.directive';
 import {HttpClientModule} from '@angular/common/http';
@@ -25,7 +24,6 @@ import { AppRoutingModule } from './app-routing.module';
         AppComponent,
         ButtonComponent,
         SearchComponent,
-        HeaderComponent,
         CheckboxComponent,
         InputComponent,
         AvatarComponent,

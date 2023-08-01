@@ -24,8 +24,6 @@ export class CardsComponent {
 
   getCards() {
     this.http.get(urls.baseUrl + 'cards.json').subscribe((data: any) => {
-      console.log(data);
-      
       this.cards = data;
     });
   }

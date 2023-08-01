@@ -10,7 +10,7 @@ export class HeaderComponent {
 @Output() tabSelected = new EventEmitter<string>();
 selectedTab: string = 'cards';
 menuItems = [
-  {name:'home',path:''},
+  {name:'home',path:'home'},
   {name:'cards',path:'cards'},
   ];
 
