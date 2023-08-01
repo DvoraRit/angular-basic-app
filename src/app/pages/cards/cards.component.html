@@ -1,0 +1,14 @@
+<div>
+    <h1>Cards Component</h1>
+    <div class="cards-container" >
+        <app-card *ngFor="let card of cards">
+            <app-avatar [image]="card.image"></app-avatar>
+            <h2 class="card-title">{{card.title}}</h2>
+            <p class="card-description">{{card.description}}</p>
+           <app-button [buttonLabel]="'show details'" 
+           (buttonClick)="showDetails(card)"
+           ></app-button>
+        </app-card>  
+    </div>
+    <router-outlet></router-outlet>
+</div>

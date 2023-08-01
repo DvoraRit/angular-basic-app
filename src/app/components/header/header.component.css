@@ -1,5 +1,40 @@
-.nav-item active {
+.header-container {
   background-color: #007bff;
-  border-radius: 5px;
-  color: #000;
+  color: #fff;
+  padding: 10px;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 16px;
+  align-items: center;
+  display: flex;
+    flex-direction: row;
+   
+}
+.header-container .header-title{
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0px 28px;
+  cursor: pointer;
+  color: #fff;
+  text-decoration:none;
+
+}
+.header-container .menu-item-container{
+  padding: 8px;
+    border-radius: 8px;
+  &:hover{
+    background-color: #3d96f5;
+  }
+
+}
+.header-container .menu-item{
+  margin-right: 10px;
+  cursor: pointer;
+  color: #fff;
+  text-decoration:none;
+  transition: background-color 0.3s ease-in-out;
+  &.active{
+    font-weight: bold;
+  }
+ 
 }

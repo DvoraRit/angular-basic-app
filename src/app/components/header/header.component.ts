@@ -8,7 +8,11 @@ import { Component,EventEmitter,Output } from '@angular/core';
 export class HeaderComponent {
 
 @Output() tabSelected = new EventEmitter<string>();
-selectedTab: string = 'search';
+selectedTab: string = 'cards';
+menuItems = [
+  {name:'home',path:''},
+  {name:'cards',path:'cards'},
+  ];
 
 onSelect(tab:string) {
   this.tabSelected.emit(tab);

@@ -13,6 +13,13 @@ import { HeaderComponent } from './components/header/header.component';
 import { CardComponent } from './components/card/card.component';
 import {PermissionDirective} from './directives/premission.directive';
 
+import { LoginComponent } from './pages/login/login.component';
+import { CardsComponent } from './pages/cards/cards.components';
+import { CardsService } from './services/cardsService.service';
+import { HomeComponent } from './pages/home/home.component';
+import { CardDetailsComponent } from './pages/card-details/card-details.component';
+import { AppRoutingModule } from './app-routing.module';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -22,14 +29,19 @@ import {PermissionDirective} from './directives/premission.directive';
         CheckboxComponent,
         InputComponent,
         AvatarComponent,
-        PermissionDirective
+        PermissionDirective,
+        LoginComponent,
+        CardsComponent,
+        HomeComponent,
+        CardDetailsComponent
     ],
-    providers: [],
+    providers: [CardsService],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
         FormsModule,
-        CardComponent
+        CardComponent,
+        AppRoutingModule
     ]
 })
 export class AppModule { 

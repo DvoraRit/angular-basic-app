@@ -1,18 +1,18 @@
+<nav class="header-container">
+    <h2 class="header-title">Welcome</h2>
+    <div
+    *ngFor="let item of menuItems"
+    class="menu-item-container"
+    >
+        <a
+        class="menu-item"
+        [routerLink]="item.path"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}"
+        >
+            {{item.name}}
+        </a>
 
-
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-2">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-        aria-expanded="false" aria-label="Toggle navigation"></button>
-    <div class="collapse navbar-collapse" id="collapsibleNavId">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0" >
-            <li [ngClass]="{'nav-item active':selectedTab==='cards'}">
-                <a class="nav-link"  (click)="onSelect('cards')">Cards</a>
-            </li>
-            <li>
-                <a class="nav-link" (click)="onSelect('search')">Search</a>
-            </li>
-        </ul>
-       
     </div>
 </nav>
+<router-outlet></router-outlet>
