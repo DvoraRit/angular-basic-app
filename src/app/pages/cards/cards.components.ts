@@ -12,6 +12,7 @@ import {urls} from '../../../consts/urls';
 })
 export class CardsComponent {
   cards: ICard[] = [];
+  isLoading: boolean = false;
 
   constructor(private router: Router, private http: HttpClient) { 
     this.getCards();
@@ -23,7 +24,9 @@ export class CardsComponent {
   }
 
   getCards() {
+    this.isLoading = true;
     this.http.get(urls.baseUrl + 'cards.json').subscribe((data: any) => {
+      this.isLoading = false;
       this.cards = data;
     });
   }

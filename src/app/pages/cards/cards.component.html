@@ -4,6 +4,8 @@
         <app-button [buttonLabel]="'add card'" (buttonClick)="addCard()"></app-button>
     </div>
     <div class="cards-container" >
+        <p *ngIf="cards.length === 0">No cards to show</p>
+        <p *ngIf="isLoading">Loading...</p>
         <app-card *ngFor="let card of cards">
             <app-avatar [image]="card.image"></app-avatar>
             <h2 class="card-title">{{card.title}}</h2>
