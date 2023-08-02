@@ -8,16 +8,8 @@ import {CardsService} from './cards/cardsService.service';
 
 
 @NgModule({
-    declarations: [
-        PagesComponent,
-        HeaderComponent,
-    ],
-    imports: [
-        HttpClientModule,
-        PagesRoutingModule,
-        CommonModule,
-    ],
-    providers: [CardsService]
+  declarations: [PagesComponent, HeaderComponent],
+  imports: [HttpClientModule, PagesRoutingModule, CommonModule],
+  providers: [CardsService],
 })
-export class PagesModule {
-}
+export class PagesModule {}

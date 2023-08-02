@@ -1,5 +1,4 @@
 .app-root-container{
-    display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
@@ -16,7 +15,7 @@
       transform: rotate(360deg);
     }
   }
-  
+
   .rotate-animation {
     animation: rotate360 2s linear forwards;
   }
