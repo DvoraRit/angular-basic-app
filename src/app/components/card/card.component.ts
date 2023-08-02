@@ -8,7 +8,6 @@ import { CdkDrag } from '@angular/cdk/drag-drop';
   imports: [CdkDrag]
 })
 export class CardComponent {
-  @Input() class = 'card-container';
   @Input() isDraggable = false;
   hover = false;
 

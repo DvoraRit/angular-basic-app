@@ -46,6 +46,8 @@ export class AppComponent {
       id: this.listItems.length + 1,
       name: this.itemToAdd,
     });
+    console.log(this.listItems);
+    
     this.itemToAdd = '';
   }
   onCheckboxChange(isChecked: any) {

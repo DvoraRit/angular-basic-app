@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-search',
@@ -8,31 +8,29 @@ import { Component, Input, OnInit, OnChanges } from '@angular/core';
 export class SearchComponent {
  @Input() originalListItems: any[] = [];
  @Input() searchPlaceholder: string = '';
-  listItems = [...this.originalListItems];
+ filteredItems: any[] = [];
   searchType="search";
 
   constructor() { 
     console.log("constructor");
-
+    this.filteredItems = [...this.originalListItems];
   }
 
-  ngOnChanges(){
+  ngOnChanges(changes: SimpleChanges){
     console.log("ngOnChanges");
-    this.listItems = [...this.originalListItems];
-  }
-
-  ngOnInit(){
-    this.listItems = [...this.originalListItems];
+    if (changes['originalListItems']) {
+      this.filteredItems = [...this.originalListItems];
+    }
   }
 
 
   onSearchChange(searchEvent: Event): void {
     const searchValue = (searchEvent.target as HTMLInputElement).value;
     if(searchValue===""){
-      this.listItems = [...this.originalListItems];
+      this. filteredItems = [...this.originalListItems];
       return;
     }
-    this.listItems = this.listItems.filter((item) => {
+    this.filteredItems = this.originalListItems.filter((item) => {
       return item.name.toLowerCase().includes(searchValue.toLowerCase());
     });
   }

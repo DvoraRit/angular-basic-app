@@ -12,6 +12,7 @@ import { SearchComponent } from './components/search/search.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CardComponent } from './components/card/card.component';
 import {PermissionDirective} from './directives/premission.directive';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import {PermissionDirective} from './directives/premission.directive';
     imports: [
         BrowserModule,
         FormsModule,
-        CardComponent
+        CardComponent,
+        CommonModule
     ]
 })
 export class AppModule { 

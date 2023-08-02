@@ -1,13 +1,10 @@
 import { userRoles } from './../../consts/userRoles';
 import {
   Directive,
-  Renderer2,
   OnInit,
-  ElementRef,
   HostListener,
   HostBinding,
   Input,
-  OnChanges,
 } from '@angular/core';
 
 @Directive({
@@ -15,7 +12,7 @@ import {
 })
 export class PermissionDirective implements OnInit {
   @Input() currentPermission: string | undefined;
-  @HostBinding('style.visibility') visibility: string | undefined;
+  @HostBinding('style.display') display: string | undefined;
 
   ngOnInit(): void {
     this.updateElementStyle();
@@ -33,9 +30,9 @@ export class PermissionDirective implements OnInit {
   private updateElementStyle(): void {
     const isAdmin = this.currentPermission === userRoles.admin;
     if (isAdmin) {
-      this.visibility = 'visible';
+      this.display = 'inherit';
     } else {
-      this.visibility = 'hidden';
+      this.display = 'none';
     }
   }
 }
