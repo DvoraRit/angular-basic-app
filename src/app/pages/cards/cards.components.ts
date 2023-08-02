@@ -3,7 +3,7 @@ import {ICard} from '../../interfaces/card.interface';
 import {Router} from '@angular/router';
 
 import {urls} from '../../../consts/urls';
-import { CardsService } from 'src/app/services/cardsService.service';
+import { CardsService } from 'src/app/pages/cards/cardsService.service';
 
 @Component({
   selector: 'app-cards',

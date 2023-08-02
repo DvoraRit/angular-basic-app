@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {ICard} from '../../interfaces/card.interface';
+import {ICard} from '../../../../interfaces/card.interface';
 @Component({
   selector: 'app-card-details',
   templateUrl: './card-details.component.html',

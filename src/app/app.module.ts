@@ -13,9 +13,9 @@ import { CardComponent } from './components/card/card.component';
 import {PermissionDirective} from './directives/premission.directive';
 import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
-import { CardsService } from './services/cardsService.service';
+import { CardsService } from './pages/cards/cardsService.service';
 import { HomeComponent } from './pages/home/home.component';
-import { CardDetailsComponent } from './pages/card-details/card-details.component';
+import { CardDetailsComponent } from './pages/cards/pages/card-details/card-details.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CardsComponent } from './pages/cards/cards.components';
 

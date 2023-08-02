@@ -4,7 +4,7 @@ import { PagesComponent } from './pages.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { CommonModule } from '@angular/common';
-import {CardsService} from '../services/cardsService.service';
+import {CardsService} from './cards/cardsService.service';
 
 
 @NgModule({
