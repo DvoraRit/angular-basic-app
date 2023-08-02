@@ -1,4 +1,4 @@
-import { userRoles } from './../../consts/userRoles';
+import { userRoles } from '../../consts/userRoles';
 import {
   Directive,
   Renderer2,

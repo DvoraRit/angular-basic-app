@@ -3,16 +3,18 @@
         <h1>{{pageTitle}}</h1>
         <app-button (onClick)="addCard()">add card</app-button>
     </div>
-    <div class="cards-container" >
-        <p *ngIf="cards.length === 0 && !isLoading">{{noCardsMessage}}</p>
-        <p *ngIf="isLoading">{{loadingMessage}}</p>
-        
-        <app-card *ngFor="let card of cards">
-            <app-avatar [image]="card.image"></app-avatar>
-            <h2 class="card-title">{{card.title}}</h2>
-            <p class="card-description">{{card.sub_title}}</p>
-           <app-button (onClick)="showDetails(card)">show details</app-button>
-        </app-card>  
+    <div class="cards-container">
+        <p *ngIf="cards.length === 0">{{noCardsMessage}}</p>
+      
+        <ng-container *ngIf="cards.length > 0 ">
+            <app-card *ngFor="let card of cards">
+                <app-avatar [image]="card.image"></app-avatar>
+                <h2 class="card-title">{{card.title}}</h2>
+                <p class="card-description">{{card.sub_title}}</p>
+                <app-button (onClick)="showDetails(card)">show details</app-button>
+            </app-card>
+        </ng-container>
+
     </div>
 
 </div>

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { ICard } from '../../interfaces/card.interface';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { Location } from '@angular/common'
 import {urls} from '../../../consts/urls';
 import { CardsService } from 'src/app/pages/cards/cardsService.service';
+import { CardsResolver } from './cards.resolver';
 
 @Component({
   selector: 'app-cards',
@@ -12,34 +13,27 @@ import { CardsService } from 'src/app/pages/cards/cardsService.service';
 })
 export class CardsComponent {
   cards: ICard[] = [];
-  isLoading: boolean = false;
   pageTitle: string = 'Cards Component';
   loadingMessage: string = 'Loading...';
   noCardsMessage: string = 'No cards found';
+
   constructor(
     private router: Router,
-    private cardsService: CardsService,
     private actRoute: ActivatedRoute,
+    private location: Location,
   ) {}
 
   ngOnInit() {
-    //this.getCards();
-    this.actRoute.data.subscribe((data) => {
-      console.log('Check route resolver data');
-      this.cards = data['cards'];
-    });
+    const resolvedData: any = this.actRoute.snapshot.data['cards'];
+    this.cards = resolvedData.cards;
+
+    if(this.cards == null) {
+      this.location.back();
+    }
   }
 
   async showDetails(card: ICard) {
     await this.router.navigate([urls.cards, card.id]);
-  }
-
-  getCards() {
-    this.isLoading = true;
-    this.cardsService.getCards().subscribe((data: any) => {
-      this.isLoading = false;
-      this.cards = data;
-    });
   }
   addCard() {
     console.log('add card');

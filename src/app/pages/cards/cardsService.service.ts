@@ -9,7 +9,8 @@ export class CardsService {
     httpClient = new HttpService(this.http);
     constructor(private http: HttpClient) {}
 
-    getCards() {
-        return this.httpClient.get(urls.cards_json);
+     getCards() {
+        let res =  this.httpClient.get(urls.cards_json);
+        return res;
     }
 }
