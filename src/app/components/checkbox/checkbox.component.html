@@ -1,11 +1,9 @@
 <div>
-    <input 
+  <input
     class="form-check-input"
     type="checkbox"
-    [checked] = "isChecked"
-    (change) = "onIsChange($event)"
-    >
-    <label>
-    {{label}}</label>
-    
+    [checked]="isChecked"
+    (change)="onIsChange($event)"
+  />
+  <label> {{ label }}</label>
 </div>

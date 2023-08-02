@@ -4,20 +4,11 @@ import { PagesComponent } from './pages.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { CommonModule } from '@angular/common';
-import {CardsService} from '../services/cardsService.service';
-
+import { CardsService } from '../services/cardsService.service';
 
 @NgModule({
-    declarations: [
-        PagesComponent,
-        HeaderComponent,
-    ],
-    imports: [
-        HttpClientModule,
-        PagesRoutingModule,
-        CommonModule,
-    ],
-    providers: [CardsService]
+  declarations: [PagesComponent, HeaderComponent],
+  imports: [HttpClientModule, PagesRoutingModule, CommonModule],
+  providers: [CardsService],
 })
-export class PagesModule {
-}
+export class PagesModule {}
