@@ -6,7 +6,7 @@ import {
 import { inject } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { CardsService } from '../../services/cardsService.service';
+import { CardsService } from './cardsService.service';
 export const CardsResolver: ResolveFn<any> = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot,

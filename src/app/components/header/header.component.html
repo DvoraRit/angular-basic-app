@@ -5,7 +5,7 @@
       class="menu-item"
       [routerLink]="item.path"
       routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true }"
+      [routerLinkActiveOptions]="{ exact: item.name === 'home' ? true : false }"
     >
       {{ item.name }}
     </a>
