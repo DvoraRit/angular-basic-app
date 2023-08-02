@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {ICard} from '../../interfaces/card.interface';
-import {CARDS} from './cardsItems';
 import {Router} from '@angular/router';
 
 import {urls} from '../../../consts/urls';
@@ -14,14 +13,15 @@ import { CardsService } from 'src/app/services/cardsService.service';
 export class CardsComponent {
   cards: ICard[] = [];
   isLoading: boolean = false;
-
+  pageTitle: string = 'Cards Component';
+  loadingMessage: string = 'Loading...';
+  noCardsMessage: string = 'No cards found';
   constructor(private router: Router, private cardsService: CardsService) { 
     this.getCards()
-
   }
 
   showDetails(card: ICard) {
-    this.router.navigate(['/cards', card.id]);
+    this.router.navigate([urls.cards, card.id]);
   }
 
   getCards() {

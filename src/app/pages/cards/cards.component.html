@@ -1,11 +1,12 @@
 <div>
     <div class="cards-header-container">
-        <h1>Cards Component</h1>
+        <h1>{{pageTitle}}</h1>
         <app-button [buttonLabel]="'add card'" (buttonClick)="addCard()"></app-button>
     </div>
     <div class="cards-container" >
-        <p *ngIf="cards.length === 0">No cards to show</p>
-        <p *ngIf="isLoading">Loading...</p>
+        <p *ngIf="cards.length === 0 && !isLoading">{{noCardsMessage}}</p>
+        <p *ngIf="isLoading">{{loadingMessage}}</p>
+        
         <app-card *ngFor="let card of cards">
             <app-avatar [image]="card.image"></app-avatar>
             <h2 class="card-title">{{card.title}}</h2>

@@ -17,6 +17,7 @@ import { CardsService } from './services/cardsService.service';
 import { HomeComponent } from './pages/home/home.component';
 import { CardDetailsComponent } from './pages/card-details/card-details.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CardsComponent } from './pages/cards/cards.components';
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import { AppRoutingModule } from './app-routing.module';
         PermissionDirective,
         LoginComponent,
         HomeComponent,
-        CardDetailsComponent
+        CardDetailsComponent,
+        CardsComponent
     ],
     providers: [CardsService],
     bootstrap: [AppComponent],

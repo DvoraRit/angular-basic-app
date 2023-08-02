@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, OnChanges } from '@angular/core';
-import { userRoles } from 'src/consts/userRoles';
+
+import { Component } from '@angular/core';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,7 +8,5 @@ import { userRoles } from 'src/consts/userRoles';
 })
 export class AppComponent {
 
-  constructor(private http: HttpClient) {
-    
-  }
+  constructor() {  }
 }
