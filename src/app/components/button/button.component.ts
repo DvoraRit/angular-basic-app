@@ -6,12 +6,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./button.component.css'],
 })
 export class ButtonComponent {
-  @Input() label: string = 'Button Title';
   @Output() onClick = new EventEmitter<Event>();
+  @Input() disabled = false;
+  @Input() type = 'button';
+  @Input() class= 'btn';
   click() {
     this.onClick.emit();
   }
 }
-
-// import Button from 'mui'
-// <Button>

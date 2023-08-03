@@ -1,4 +1,7 @@
-<button class="button-defult"
+<button 
+[disabled]="disabled"
+[type]="type"
+[class]="class"
 (click) = "click()">
 <ng-content></ng-content>
 </button>

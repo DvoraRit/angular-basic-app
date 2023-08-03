@@ -22,7 +22,13 @@
             <div class="form-group">
                 <div>
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" placeholder="Enter password" ngModel 
+                <input 
+                class="input-defult"
+                type="password"
+                name="password" 
+                id="password" 
+                placeholder="Enter password" 
+                [(ngModel)]="passwordValue" 
                 required
                 #password="ngModel"
                 >
@@ -31,9 +37,11 @@
         
         </div>
         <span class="error-massage" *ngIf="loginFailed">Login Failed</span>
-            <button type="submit" class="btn btn-primary"
+            <app-button 
+            type="submit" 
+            class="btn small"
             [disabled]="!f.valid"
-            >Submit</button>
+            >Submit</app-button>
         </form>
     </app-card>
 </div>

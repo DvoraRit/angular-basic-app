@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginComponent {
   @ViewChild('f') signupForm: NgForm | undefined;
-
+  passwordValue: string = '';
   authService : AuthService;
   loginFailed = false;
   constructor( private router: Router, private http: HttpClient){ 

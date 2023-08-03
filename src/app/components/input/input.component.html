@@ -1,7 +1,9 @@
 <input 
-class="input-defult"
-    type="type" 
+    class="input-default"
+    [type]="type" 
+    [name]="name"
     placeholder={{placeholder}}
     (input) = "onInputValueChange($event)"
+    [value]="value"
     
 />

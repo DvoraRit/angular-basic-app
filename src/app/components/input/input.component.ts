@@ -1,16 +1,38 @@
 import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.css'],
+  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: InputComponent, multi: true }]
 })
-export class InputComponent {
+export class InputComponent implements ControlValueAccessor {
   @Output() value = new EventEmitter<string>();
   @Input() placeholder: string = '';
   @Input() type: string = 'text';
+  @Input() name: string = '';
+  private innerValue: string = '';
 
-  onInputValueChange(event: any) {
-    this.value.emit(event.target.value);
+  onChange: any = () => {};
+  onTouched: any = () => {};
+  writeValue(value: any): void {
+    this.innerValue = "aaaaa";
   }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+
+  onInputValueChange(event: any ) {
+
+    this.innerValue = event.target?.value;
+    this.onChange(event.target?.value);
+    this.value.emit(event.target?.value);
+  }
+  
 }
