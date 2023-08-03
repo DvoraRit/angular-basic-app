@@ -1,7 +1,7 @@
 
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './pages/login/login.component';
+import { LoginComponent } from './pages/auth/pages/login/login.component';
 import { CardsService } from './pages/cards/cardsService.service';
 import { HomeComponent } from './pages/home/home.component';
 import { CardDetailsComponent } from './pages/cards/pages/card-details/card-details.component';
@@ -13,7 +13,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import {environment} from '../environments/environment';
 import {AngularFireModule} from '@angular/fire/compat';
 import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from './pages/auth/auth.guard';
 
 
 // firebase.initializeApp(environment.firebaseConfig);
@@ -29,15 +30,17 @@ import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
         CardDetailsComponent,
         CardsComponent,
     ],
-    providers: [CardsService],
+    providers: [CardsService, AuthGuard],
     bootstrap: [AppComponent],
     imports: [
         AppRoutingModule,
         SharedModule,
         CommonModule,
         BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
-        AngularFireAnalyticsModule,
+        // AngularFireAnalyticsModule,
     ]
 })
 export class AppModule { 

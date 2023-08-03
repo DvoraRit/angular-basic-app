@@ -8,8 +8,11 @@ import { AngularFireAnalytics } from '@angular/fire/compat/analytics'
 })
 export class AppComponent implements AfterViewInit {
 
-  constructor(private analytics: AngularFireAnalytics) {  }
+  constructor(
+    private analytics: AngularFireAnalytics
+    ) {  }
   ngAfterViewInit() {
-    this.analytics.logEvent('user entered the app');
+    
+    // this.analytics.logEvent('user entered the app');
   }
 }

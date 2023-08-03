@@ -8,7 +8,11 @@ export class HttpService {
   constructor(private http: HttpClient) {}
 
   get(url: string) {
-   let res =   this.http.get(urls.baseUrl + url);
+   let res =   this.http.get(urls.firebase + url);
    return res;
+  }
+   post(url: string, data: any) {
+    let res=  this.http.post(urls.baseUrl + url, data);
+    return res;
   }
 }

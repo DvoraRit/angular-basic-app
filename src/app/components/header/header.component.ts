@@ -1,5 +1,6 @@
 import { Component,EventEmitter,Output } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { urls } from 'src/consts/urls';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -14,9 +15,15 @@ menuItems = [
   {name:'cards',path:'cards'},
   ];
 
+constructor(private router: Router) { }
+
 onSelect(tab:string) {
   this.tabSelected.emit(tab);
   this.selectedTab = tab;
+}
+logout(){
+  localStorage.removeItem("token");
+  this.router.navigate([urls.routes.login]);
 }
 
 }

@@ -33,7 +33,7 @@ export class CardsComponent {
   }
 
   async showDetails(card: ICard) {
-    await this.router.navigate([urls.cards, card.id]);
+    await this.router.navigate([urls.routes.cards, card.id]);
   }
   addCard() {
     console.log('add card');
