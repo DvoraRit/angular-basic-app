@@ -10,13 +10,24 @@ import { CardsComponent } from './pages/cards/cards.components';
 import {SharedModule} from './SharedModule.module';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import {environment} from '../environments/environment';
+import {AngularFireModule} from '@angular/fire/compat';
+import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
+
+
+
+// firebase.initializeApp(environment.firebaseConfig);
+// const firebaseApp = initializeApp(environment.firebaseConfig);
+// const analytics = getAnalytics(firebaseApp);
+
+
 @NgModule({
     declarations: [
         AppComponent,
         LoginComponent,
         HomeComponent,
         CardDetailsComponent,
-        CardsComponent
+        CardsComponent,
     ],
     providers: [CardsService],
     bootstrap: [AppComponent],
@@ -24,7 +35,9 @@ import { BrowserModule } from '@angular/platform-browser';
         AppRoutingModule,
         SharedModule,
         CommonModule,
-        BrowserModule
+        BrowserModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireAnalyticsModule,
     ]
 })
 export class AppModule { 
