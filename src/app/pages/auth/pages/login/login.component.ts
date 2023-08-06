@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import {urls} from '../../../../../consts/urls';
 import {AuthService} from '../../auth.service';
