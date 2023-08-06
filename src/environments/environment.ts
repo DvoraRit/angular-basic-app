@@ -10,6 +10,7 @@
 
 export const environment = {
     production: false,
+    
     firebaseConfig : {
         apiKey: "AIzaSyDqvGhmvEmvsuwNf0EkSQA5YgymYWFsCFE",
         authDomain: "ng-first-app-8e94b.firebaseapp.com",

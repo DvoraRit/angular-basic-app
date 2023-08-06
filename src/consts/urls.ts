@@ -1,7 +1,8 @@
 import { routes } from './../app/pages/pages-routing.module';
+import { environment } from './../environments/environment';
 export const urls = {
     baseUrl:"https://localhost:44380/api",
-    firebase:"https://ng-first-app-8e94b-default-rtdb.firebaseio.com",
+    firebase:environment.firebaseConfig.databaseURL,
     routes:{
         home:"",
         login:"/login",
