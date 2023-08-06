@@ -17,7 +17,6 @@ export class HttpService {
     return res;
   }
   put(url: string, data: any) {
-    debugger
     let res=  this.http.put(urls.firebase + url, data);
     return res;
   }
