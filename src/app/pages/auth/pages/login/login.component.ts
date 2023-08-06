@@ -21,7 +21,7 @@ export class LoginComponent {
 
   onSubmit() {
     this.authService.login(this.signupForm?.value.email,this.signupForm?.value.password).subscribe((res:any)=>{
-      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("token", res.idToken);
       this.router.navigate([urls.routes.home]);
     },()=>{
       this.loginFailed = true;

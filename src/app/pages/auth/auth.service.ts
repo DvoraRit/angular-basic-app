@@ -10,9 +10,10 @@ export class AuthService {
     login(email:string,password:string) {
         let data =  {
             email:email,
-            password:password
+            password:password,
+            returnSecureToken:true
         }
-        let res =  this.httpClient.post(urls.auth.login, data, urls.baseUrl);
+        let res =  this.httpClient.login(data);
         return res;
     }
 }
