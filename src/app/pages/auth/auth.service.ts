@@ -12,7 +12,7 @@ export class AuthService {
             email:email,
             password:password
         }
-        let res =  this.httpClient.post(urls.auth.login, data);
+        let res =  this.httpClient.post(urls.auth.login, data, urls.baseUrl);
         return res;
     }
 }
