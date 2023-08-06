@@ -9,7 +9,7 @@ import {PermissionDirective} from './directives/permission.directive';
 import {HttpClientModule} from '@angular/common/http';
 import { SearchComponent } from './components/search/search.component';
 import { AvatarComponent } from './components/avatar/avatar.component';
-
+import {PopUpModalComponent} from './components/popUpModel/popUpModal.component';
 
 @NgModule({
     declarations: [
@@ -19,6 +19,7 @@ import { AvatarComponent } from './components/avatar/avatar.component';
         PermissionDirective,
         SearchComponent,
         AvatarComponent,
+        PopUpModalComponent
     ],
     imports: [
         FormsModule,
@@ -32,8 +33,9 @@ import { AvatarComponent } from './components/avatar/avatar.component';
         CardComponent,
         SearchComponent,
         AvatarComponent,
+        PopUpModalComponent,
         PermissionDirective
     ]
 })
 
-export class SharedModule { }
+export class SharedModule {}

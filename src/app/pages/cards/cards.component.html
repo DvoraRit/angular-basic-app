@@ -16,7 +16,10 @@
                 >show details</app-button>
             </app-card>
         </ng-container>
-
     </div>
+
+    <app-popUpModal appPermission (show)="openAddCardModal">
+        <h1>add</h1>
+    </app-popUpModal>
 
 </div>

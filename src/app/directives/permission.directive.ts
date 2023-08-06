@@ -15,6 +15,8 @@ import {
 })
 export class PermissionDirective implements OnInit {
   @Input() currentPermission: string | undefined;
+  @Input() permission: string | undefined;//the permission that the user need to have in order to see the element
+  @Input() show: boolean | undefined;//if true the element will be visible even if the user doesn't have the permission
   @HostBinding('style.visibility') visibility: string | undefined;
 
   ngOnInit(): void {
@@ -31,8 +33,9 @@ export class PermissionDirective implements OnInit {
 //   }
 
   private updateElementStyle(): void {
-    const isAdmin = this.currentPermission === userRoles.admin;
-    if (isAdmin) {
+    debugger
+    const canShow = this.currentPermission === this.permission;
+    if (canShow || this.show) {
       this.visibility = 'visible';
     } else {
       this.visibility = 'hidden';

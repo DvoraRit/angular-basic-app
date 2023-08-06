@@ -16,7 +16,7 @@ export class CardsComponent {
   pageTitle: string = 'Cards Component';
   loadingMessage: string = 'Loading...';
   noCardsMessage: string = 'No cards found';
-
+  openAddCardModal: boolean = false;
   constructor(
     private router: Router,
     private actRoute: ActivatedRoute,
@@ -36,6 +36,6 @@ export class CardsComponent {
     await this.router.navigate([urls.routes.cards, card.id]);
   }
   addCard() {
-    console.log('add card');
+    this.openAddCardModal = !this.openAddCardModal;
   }
 }

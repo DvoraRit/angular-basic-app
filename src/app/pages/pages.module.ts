@@ -5,10 +5,11 @@ import { PagesRoutingModule } from './pages-routing.module';
 import {CardsService} from './cards/cardsService.service';
 import { SharedModule } from '../SharedModule.module';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [PagesComponent, HeaderComponent],
-  imports: [ PagesRoutingModule, SharedModule, CommonModule],
+  imports: [ PagesRoutingModule, SharedModule, CommonModule, ReactiveFormsModule],
   providers: [CardsService],
 })
 export class PagesModule {}
