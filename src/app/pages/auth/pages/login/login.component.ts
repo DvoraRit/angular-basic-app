@@ -23,7 +23,7 @@ export class LoginComponent {
     this.authService.login(this.signupForm?.value.email,this.signupForm?.value.password).subscribe((res:any)=>{
       localStorage.setItem("token", res.data.token);
       this.router.navigate([urls.routes.home]);
-    },(err)=>{
+    },()=>{
       this.loginFailed = true;
     })
   }

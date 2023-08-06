@@ -13,7 +13,7 @@ export class PopUpModalComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges(){
-    console.log(this.open)
+    
   }
 
   closeModal(){

@@ -19,7 +19,7 @@
     </div>
 
     <app-popUpModal [open]="openAddCardModal" [title]="'Add Card'" >
-        <app-addCardForm></app-addCardForm>
+        <app-addCardForm (close) = "closeModal()"></app-addCardForm>
     </app-popUpModal>
 
 </div>

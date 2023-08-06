@@ -26,7 +26,6 @@ export class CardsComponent {
   ngOnInit() {
     const resolvedData: any = this.actRoute.snapshot.data['cards'];
     this.cards = resolvedData.cards;
-
     if(this.cards == null) {
       this.location.back();
     }
@@ -37,5 +36,8 @@ export class CardsComponent {
   }
   addCard() {
     this.openAddCardModal = !this.openAddCardModal;
+  }
+  closeModal(){
+    this.openAddCardModal = false;
   }
 }
