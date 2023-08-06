@@ -15,7 +15,7 @@ import {AngularFireModule} from '@angular/fire/compat';
 import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from './pages/auth/auth.guard';
-
+import {AddCardFormComponent} from './components/addCardForm/addCardForm.component';
 
 // firebase.initializeApp(environment.firebaseConfig);
 // const firebaseApp = initializeApp(environment.firebaseConfig);
@@ -29,6 +29,7 @@ import { AuthGuard } from './pages/auth/auth.guard';
         HomeComponent,
         CardDetailsComponent,
         CardsComponent,
+        AddCardFormComponent
     ],
     providers: [CardsService, AuthGuard],
     bootstrap: [AppComponent],
@@ -38,9 +39,8 @@ import { AuthGuard } from './pages/auth/auth.guard';
         CommonModule,
         BrowserModule,
         FormsModule,
-        ReactiveFormsModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
-        // AngularFireAnalyticsModule,
+        AngularFireAnalyticsModule,
     ]
 })
 export class AppModule { 

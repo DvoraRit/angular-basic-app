@@ -12,7 +12,7 @@ export class HttpService {
    return res;
   }
    post(url: string, data: any) {
-    let res=  this.http.post(urls.baseUrl + url, data);
+    let res=  this.http.post(urls.firebase + url, data);
     return res;
   }
 }

@@ -1,5 +1,12 @@
-<div id="myModal" class="modal">
-
+<div id="myModal" class="modal" appPermission [show]="open">
+  <div class="modal-content">
+    <div class="header-container">
+      <h2>{{title}}</h2>
+      <img src="assets/close_icon.png" alt="close" class="close" (click)="closeModal()">
+    </div>
+    <div class="divider"></div>
     <ng-content></ng-content>
+   
+  </div>  
   
-  </div>
+</div>

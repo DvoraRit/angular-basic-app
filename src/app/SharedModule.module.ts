@@ -1,6 +1,6 @@
 
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonComponent } from './components/button/button.component';
 import { InputComponent } from "./components/input/input.component";
 import { CheckboxComponent } from "./components/checkbox/checkbox.component";
@@ -19,12 +19,14 @@ import {PopUpModalComponent} from './components/popUpModel/popUpModal.component'
         PermissionDirective,
         SearchComponent,
         AvatarComponent,
-        PopUpModalComponent
+        PopUpModalComponent,
+        
     ],
     imports: [
         FormsModule,
         HttpClientModule,
         CardComponent,
+        ReactiveFormsModule
     ],
     exports: [
         ButtonComponent,
@@ -34,7 +36,8 @@ import {PopUpModalComponent} from './components/popUpModel/popUpModal.component'
         SearchComponent,
         AvatarComponent,
         PopUpModalComponent,
-        PermissionDirective
+        PermissionDirective,
+        ReactiveFormsModule
     ]
 })
 

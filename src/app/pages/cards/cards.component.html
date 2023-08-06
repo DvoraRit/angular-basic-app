@@ -18,8 +18,8 @@
         </ng-container>
     </div>
 
-    <app-popUpModal appPermission (show)="openAddCardModal">
-        <h1>add</h1>
+    <app-popUpModal [open]="openAddCardModal" [title]="'Add Card'" >
+        <app-addCardForm></app-addCardForm>
     </app-popUpModal>
 
 </div>

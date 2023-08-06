@@ -5,12 +5,14 @@ import { Injectable } from '@angular/core';
 import {HttpService} from '../../services/http.service';
 @Injectable()
 export class CardsService {
-    cards:ICard[] = [];
     httpClient = new HttpService(this.http);
     constructor(private http: HttpClient) {}
 
      getCards() {
         let res =  this.httpClient.get(urls.cards_json);
         return res;
+    }
+    addCard(card:ICard) {
+       this.httpClient.post(urls.cards_json, card);
     }
 }

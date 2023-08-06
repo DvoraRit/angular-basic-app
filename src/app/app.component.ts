@@ -1,6 +1,7 @@
 
 import { Component, AfterViewInit } from '@angular/core';
-import { AngularFireAnalytics } from '@angular/fire/compat/analytics'
+import { AngularFireAnalytics } from '@angular/fire/compat/analytics';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,6 +14,6 @@ export class AppComponent implements AfterViewInit {
     ) {  }
   ngAfterViewInit() {
     
-    // this.analytics.logEvent('user entered the app');
+    this.analytics.logEvent('user entered the app');
   }
 }
