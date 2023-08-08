@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { CardDetailsComponent } from './cards/pages/card-details/card-details.component';
 import { PagesComponent } from './pages.component';
 import { CardsResolver } from './cards/cards.resolver';
+import { MyCardsComponent } from './my-cards/my-cards/my-cards.component';
 
 export const routes: Routes = [
   {
@@ -17,6 +18,10 @@ export const routes: Routes = [
         resolve: {
           cards: CardsResolver,
         },
+      },
+      {
+          path: 'my-cards',
+          component:MyCardsComponent
       },
       {
         path:"cards/:id",

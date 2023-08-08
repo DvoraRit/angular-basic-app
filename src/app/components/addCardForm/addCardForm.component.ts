@@ -26,9 +26,8 @@ export class AddCardFormComponent implements OnInit {
     }
 
     onSubmit() {
-        let data = {...this.addCardForm.value, id: Math.random()};
+        let data = {...this.addCardForm.value, id: Math.floor(Math.random() * 1000)};
         this.cardsService.addCard(data).subscribe((res:any)=>{
-            console.log(res);
             this.close.emit(true);
         })
     }

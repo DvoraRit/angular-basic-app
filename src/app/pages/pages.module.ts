@@ -5,9 +5,10 @@ import { PagesRoutingModule } from './pages-routing.module';
 import {CardsService} from './cards/cardsService.service';
 import { SharedModule } from '../SharedModule.module';
 import { CommonModule } from '@angular/common';
+import { MyCardsComponent } from './my-cards/my-cards/my-cards.component';
 
 @NgModule({
-  declarations: [PagesComponent, HeaderComponent],
+  declarations: [PagesComponent, HeaderComponent, MyCardsComponent],
   imports: [ PagesRoutingModule, SharedModule, CommonModule],
   providers: [CardsService],
 })

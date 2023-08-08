@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { ICard } from '../../interfaces/card.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common'
 import {urls} from '../../../consts/urls';
+import { Store } from '@ngrx/store';
+import { addToCart } from 'src/app/store/cart.actions';
 
 @Component({
   selector: 'app-cards',
@@ -15,10 +17,12 @@ export class CardsComponent {
   loadingMessage: string = 'Loading...';
   noCardsMessage: string = 'No cards found';
   openAddCardModal: boolean = false;
+ 
   constructor(
     private router: Router,
     private actRoute: ActivatedRoute,
     private location: Location,
+    private store:Store<{cart:ICard[]}>
   ) {}
 
   ngOnInit() {
@@ -29,8 +33,9 @@ export class CardsComponent {
     }
   }
 
-  async showDetails(card: ICard) {
-    await this.router.navigate([urls.routes.cards, card.id]);
+  async addToCart(card: ICard) {
+    // await this.router.navigate([urls.routes.cards, card.id]);
+    this.store.dispatch(addToCart({card:card}));
   }
   addCard() {
     this.openAddCardModal = !this.openAddCardModal;

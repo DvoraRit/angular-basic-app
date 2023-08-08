@@ -13,7 +13,6 @@ export class CardsService {
         return res;
     }
     addCard(card:ICard) {
-        debugger
         let res = this.httpClient.post(urls.cards_json, card);
         return res;
     }

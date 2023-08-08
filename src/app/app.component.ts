@@ -1,19 +1,27 @@
 
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { AngularFireAnalytics } from '@angular/fire/compat/analytics';
+import { Store } from '@ngrx/store';
+import { ICard } from './interfaces/card.interface';
+import { init } from './store/cart.actions';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit, OnInit {
 
   constructor(
-    private analytics: AngularFireAnalytics
+    private analytics: AngularFireAnalytics,
+    private store: Store<{ cart: ICard[] }>
     ) {  }
+
+  ngOnInit() {
+    this.store.dispatch(init());
+  }
+  
   ngAfterViewInit() {
-    
     this.analytics.logEvent('user entered the app');
   }
 }

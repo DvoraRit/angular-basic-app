@@ -1,0 +1,16 @@
+<div>
+    <div class="cards-container">
+        <p *ngIf="myCardsList.length === 0">{{noCardsMessage}}</p>
+      
+        <ng-container *ngIf="myCardsList.length > 0 ">
+            <app-card *ngFor="let card of myCardsList">
+                <app-avatar [image]="card.image"></app-avatar>
+                <h2 class="card-title">{{card.title}}</h2>
+                <p class="card-description">{{card.sub_title}}</p>
+                <app-button (onClick)="removeFromCart(card)"
+                class="btn small"
+                >remove from cart</app-button>
+            </app-card>
+        </ng-container>
+    </div>
+</div>

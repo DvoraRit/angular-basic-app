@@ -9,6 +9,7 @@
         [routerLinkActiveOptions]="{ exact: item.name === 'home' ? true : false }"
       >
         {{ item.name }}
+        <span *ngIf="item.name ==='my cards'" class="badge">{{numOfCardsInCart$ | async}}</span>
       </a>
     </div>
   </div>

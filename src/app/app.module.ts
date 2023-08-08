@@ -16,7 +16,10 @@ import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from './pages/auth/auth.guard';
 import {AddCardFormComponent} from './components/addCardForm/addCardForm.component';
-
+import { StoreModule } from '@ngrx/store';
+import {cartReducer} from './store/cart.reducer';
+import { EffectsModule } from '@ngrx/effects'
+import { CartEffects } from './store/cart.effect';
 // firebase.initializeApp(environment.firebaseConfig);
 // const firebaseApp = initializeApp(environment.firebaseConfig);
 // const analytics = getAnalytics(firebaseApp);
@@ -41,6 +44,10 @@ import {AddCardFormComponent} from './components/addCardForm/addCardForm.compone
         FormsModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFireAnalyticsModule,
+        StoreModule.forRoot({
+            cart: cartReducer
+        }),
+        EffectsModule.forRoot([CartEffects]),
     ]
 })
 export class AppModule { 
