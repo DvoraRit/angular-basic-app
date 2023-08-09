@@ -25,10 +25,10 @@ export class CardsComponent {
 
   ngOnInit() {
     const resolvedData: any = this.actRoute.snapshot.data['cards'];
-    this.cards = resolvedData.cards;
-    if(this.cards == null) {
-      this.location.back();
-    }
+    this.cards = Object.values(resolvedData.cards);
+    // if(this.cards == null) {
+    //   this.location.back();
+    // }
   }
 
   async addToCart(card: ICard) {
