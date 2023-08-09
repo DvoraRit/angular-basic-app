@@ -33,6 +33,9 @@ export class PopUpModalComponent implements OnInit, OnChanges {
     if(this.open) {
       this.state = 'open';
     }
+    else{
+      this.state = 'close';
+    }
   }
 
   closeModal(){
