@@ -10,16 +10,21 @@
         
         <div class="form-group">
             <label for="sub_title">Sub Title</label>
-            <input type="text" formControlName="sub_title" class="form-control"placeholder="Enter sub title">
+            <input type="text" formControlName="sub_title" class="form-control" placeholder="Enter sub title"/>
+            <!-- <app-input [type]="'text'" [formControlName]="'sub_title'" [placeholder]="'Enter sub title'"></app-input> -->
             <span class="error-massage" *ngIf="!addCardForm.get('sub_title').valid && addCardForm.get('sub_title').touched">Sub title not valid</span>
-
         </div>
 
         <div class="form-group">
+            
             <label for="image">Image</label>
             <input type="text" formControlName="image" class="form-control" placeholder="Enter image url">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <app-button 
+        type="submit" 
+        class="btn small"
+        [disabled]="!addCardForm.valid"
+        >Submit</app-button>
     </form>
 
 </div>

@@ -20,6 +20,7 @@ import { StoreModule } from '@ngrx/store';
 import {cartReducer} from './store/cart.reducer';
 import { EffectsModule } from '@ngrx/effects'
 import { CartEffects } from './store/cart.effect';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 // firebase.initializeApp(environment.firebaseConfig);
 // const firebaseApp = initializeApp(environment.firebaseConfig);
 // const analytics = getAnalytics(firebaseApp);
@@ -42,6 +43,7 @@ import { CartEffects } from './store/cart.effect';
         CommonModule,
         BrowserModule,
         FormsModule,
+        BrowserAnimationsModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFireAnalyticsModule,
         StoreModule.forRoot({

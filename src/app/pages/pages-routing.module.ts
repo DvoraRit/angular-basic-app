@@ -18,14 +18,16 @@ export const routes: Routes = [
         resolve: {
           cards: CardsResolver,
         },
+        children: [
+          {
+            path: ':id',
+            component: CardDetailsComponent,
+          },
+        ],
       },
       {
           path: 'my-cards',
           component:MyCardsComponent
-      },
-      {
-        path:"cards/:id",
-        component:CardDetailsComponent
       },
       {
         path: 'home',

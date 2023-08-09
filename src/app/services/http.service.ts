@@ -8,19 +8,19 @@ export class HttpService {
   constructor(private http: HttpClient) {}
 
   get(url: string) {
-   let res =   this.http.get(urls.firebase + url);
+   let res =   this.http.get(urls.firebase.cards + url);
    return res;
   }
   login(data:any){
-    let res =  this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.firebaseConfig.apiKey}`, data);
+    let res =  this.http.post(urls.firebase.login+ environment.firebaseConfig.apiKey, data);
     return res;
   }
-   post(url: string, data: any, baseUrl:string=urls.firebase ) {
+   post(url: string, data: any, baseUrl:string=urls.firebase.cards ) {
     let res=  this.http.post(baseUrl + url, data);
     return res;
   }
   put(url: string, data: any) {
-    let res=  this.http.put(urls.firebase + url, data);
+    let res=  this.http.put(urls.firebase.cards + url, data);
     return res;
   }
 }

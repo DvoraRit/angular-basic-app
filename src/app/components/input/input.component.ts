@@ -11,8 +11,8 @@ export class InputComponent implements ControlValueAccessor {
   @Output() value = new EventEmitter<string>();
   @Input() placeholder: string = '';
   @Input() type: string = 'text';
-  @Input() name: string = '';
-  private innerValue: string = '';
+  @Input() formControlName: string = '';
+  innerValue: string = '';
 
   onChange: any = () => {};
   onTouched: any = () => {};
@@ -25,6 +25,8 @@ export class InputComponent implements ControlValueAccessor {
   }
 
   registerOnTouched(fn: any): void {
+    console.log("registerOnTouched");
+    
     this.onTouched = fn;
   }
 

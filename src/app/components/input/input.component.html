@@ -1,9 +1,8 @@
 <input 
     class="input-default"
-    [type]="type" 
-    [name]="name"
-    placeholder={{placeholder}}
+    [type]="type"
+    [placeholder]="placeholder"
     (input) = "onInputValueChange($event)"
-    [value]="value"
+    [formControlName]="formControlName"
     
 />

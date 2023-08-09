@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { ICard } from 'src/app/interfaces/card.interface';
 import { urls } from 'src/consts/urls';
 import {selectorCartLength} from '../../store/cart.selector';
+import {headerTabs} from '../../../consts/headerTabs';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -16,11 +17,8 @@ export class HeaderComponent {
 selectedTab: string = 'cards';
 numOfCardsInCart$:Observable<number>;
 numOfCardsInCart:number = 0;
-menuItems = [
-  {name:'home',path:'home'},
-  {name:'cards',path:'cards'},
-  {name:'my cards',path:'my-cards'}
-  ];
+headerTabs = headerTabs;
+
 
 constructor(private router: Router, private store:Store<{cart:ICard[]}>) { 
   this.numOfCardsInCart$ = store.select(selectorCartLength);

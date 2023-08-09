@@ -3,10 +3,19 @@ import { Component, ViewChild, OnInit, Output, EventEmitter } from '@angular/cor
 import {  FormControl, FormGroup, Validators } from '@angular/forms';
 import { CardsService } from 'src/app/pages/cards/cardsService.service';
 import { HttpClient } from '@angular/common/http';
+import { trigger, state } from '@angular/animations';
+const DEFAULT_IMAGE = "https://robohash.org/quibeataesunt.png?size=50x50&set=set1";
+
 @Component({
     selector: 'app-addCardForm',
     templateUrl: './addCardForm.component.html',
-    styleUrls: ['./addCardForm.component.css']
+    styleUrls: ['./addCardForm.component.css'],
+    // animations: [
+    //     trigger('addCardModal', [
+    //       state(),
+    //       state()
+    //     ])
+    //   ]
 })
 
 export class AddCardFormComponent implements OnInit {
@@ -21,14 +30,15 @@ export class AddCardFormComponent implements OnInit {
         this.addCardForm = new FormGroup({
             'title':new FormControl(null, Validators.required),
             'sub_title':new FormControl(null,Validators.required),
-            'image':new FormControl("https://robohash.org/quibeataesunt.png?size=50x50&set=set1")
+            'image':new FormControl(DEFAULT_IMAGE)
         });
     }
 
     onSubmit() {
         let data = {...this.addCardForm.value, id: Math.floor(Math.random() * 1000)};
         this.cardsService.addCard(data).subscribe((res:any)=>{
-            this.close.emit(true);
+        this.close.emit(true);
         })
+        
     }
 }

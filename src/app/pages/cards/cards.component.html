@@ -1,7 +1,7 @@
 <div>
     <div class="cards-header-container">
         <h1>{{pageTitle}}</h1>
-        <app-button (onClick)="addCard()">add card</app-button>
+        <app-button (onClick)="openModal()">add card</app-button>
     </div>
     <div class="cards-container">
         <p *ngIf="cards.length === 0">{{noCardsMessage}}</p>
