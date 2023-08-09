@@ -1,13 +1,13 @@
 <div>
     <div class="cards-header-container">
         <h1>{{pageTitle}}</h1>
-        <app-button (onClick)="openModal()">add card</app-button>
+        <app-button (onClick)="openModal()" id="add-card">add card</app-button>
     </div>
-    <div class="cards-container">
+    <div class="cards-container" id="cards-container">
         <p *ngIf="cards.length === 0">{{noCardsMessage}}</p>
       
         <ng-container *ngIf="cards.length > 0 ">
-            <app-card *ngFor="let card of cards">
+            <app-card *ngFor="let card of cards" id="card">
                 <app-avatar [image]="card.image"></app-avatar>
                 <h2 class="card-title">{{card.title}}</h2>
                 <p class="card-description">{{card.sub_title}}</p>

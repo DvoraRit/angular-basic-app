@@ -1,4 +1,4 @@
-import { routes } from './../app/pages/pages-routing.module';
+
 export const urls = {
     baseUrl:"https://localhost:44380/api",
     firebase:{

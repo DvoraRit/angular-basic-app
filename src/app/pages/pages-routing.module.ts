@@ -30,7 +30,7 @@ export const routes: Routes = [
           component:MyCardsComponent
       },
       {
-        path: 'home',
+        path: '',
         component: HomeComponent,
       },
     ],

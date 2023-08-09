@@ -3,6 +3,7 @@
     <h2 class="header-title">Welcome</h2>
     <div *ngFor="let item of headerTabs" class="menu-item-container">
       <a
+      id="menu-item"
         class="menu-item"
         [routerLink]="item.path"
         routerLinkActive="active"
@@ -13,7 +14,7 @@
       </a>
     </div>
   </div>
-  <div class="menu-item-container">
+  <div class="menu-item-container" data-testid="logout">
     <a class="menu-item" (click)="logout()">Logout</a>
   </div>
 </nav>

@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { trigger, state } from '@angular/animations';
 import { ICard } from '../../interfaces/card.interface';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common'
-import {urls} from '../../../consts/urls';
 import { Store } from '@ngrx/store';
 import { addToCart } from 'src/app/store/cart.actions';
 
@@ -11,14 +9,6 @@ import { addToCart } from 'src/app/store/cart.actions';
   selector: 'app-cards',
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.css'],
-  animations: [
-    trigger('addCardModal', [
-      state('true',style({
-        
-      })),
-      state()
-    ])
-  ]
 })
 export class CardsComponent {
   cards: ICard[] = [];
@@ -28,7 +18,6 @@ export class CardsComponent {
   openAddCardModal: boolean = false;
  
   constructor(
-    private router: Router,
     private actRoute: ActivatedRoute,
     private location: Location,
     private store:Store<{cart:ICard[]}>
@@ -43,7 +32,6 @@ export class CardsComponent {
   }
 
   async addToCart(card: ICard) {
-    // await this.router.navigate([urls.routes.cards, card.id]);
     this.store.dispatch(addToCart({card:card}));
   }
   openModal() {
