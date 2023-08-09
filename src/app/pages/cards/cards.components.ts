@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { trigger, state } from '@angular/animations';
 import { ICard } from '../../interfaces/card.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common'
@@ -10,6 +11,14 @@ import { addToCart } from 'src/app/store/cart.actions';
   selector: 'app-cards',
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.css'],
+  animations: [
+    trigger('addCardModal', [
+      state('true',style({
+        
+      })),
+      state()
+    ])
+  ]
 })
 export class CardsComponent {
   cards: ICard[] = [];
@@ -37,7 +46,7 @@ export class CardsComponent {
     // await this.router.navigate([urls.routes.cards, card.id]);
     this.store.dispatch(addToCart({card:card}));
   }
-  addCard() {
+  openModal() {
     this.openAddCardModal = !this.openAddCardModal;
   }
   closeModal(){
