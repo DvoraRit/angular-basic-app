@@ -6,6 +6,7 @@ import { ICard } from 'src/app/interfaces/card.interface';
 import { urls } from 'src/consts/urls';
 import {selectorCart, selectorCartLength} from '../../store/cart.selector';
 import {headerTabs} from '../../../consts/headerTabs';
+import { UpdateSearchFilter } from 'src/app/store/cart.actions';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -35,7 +36,6 @@ constructor(private router: Router, private store:Store<{cart:ICard[]}>) {
 }
 
 ngOnInit(): void {
-  
   this.listOfOptions$.subscribe((cards)=>{
     this.listOfOptions = cards.map((item)=>{
       return {
@@ -43,6 +43,11 @@ ngOnInit(): void {
         key:item.id
       }});
   });
+}
+
+onSelectedValue(value:string){
+  console.log("onSelectedValue", value);
+  this.store.dispatch(new UpdateSearchFilter(value));
 }
 
 logout(){

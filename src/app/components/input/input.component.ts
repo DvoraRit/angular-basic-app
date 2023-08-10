@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { Component, EventEmitter, Output, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -7,18 +7,24 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   styleUrls: ['./input.component.css'],
   providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: InputComponent, multi: true }]
 })
-export class InputComponent {
+export class InputComponent implements OnChanges {
   @Output() value = new EventEmitter<string>();
   @Output() focus = new EventEmitter<string>();
+  @Input() selectedValue: string = '';
   @Input() placeholder: string = '';
   @Input() type: string = 'text';
-  @Input() formControlName: string = '';
-  innerValue: string = '';
 
   onChange: any = () => {};
   onTouched: any = () => {};
-  writeValue(value: any): void {
-    this.innerValue = "aaaaa";
+ 
+  ngOnChanges(changes: SimpleChanges): void {
+    if(changes['selectedValue'] &&changes['selectedValue'].currentValue){
+      this.selectedValue=changes['selectedValue'].currentValue;
+      this.value.emit(this.selectedValue);
+    }
+    else{
+      this.selectedValue='';
+    }
   }
 
   onClick(event:any){
@@ -26,9 +32,6 @@ export class InputComponent {
   }
 
   onInputValueChange(event: any ) {
-
-    this.innerValue = event.target?.value;
-    this.onChange(event.target?.value);
     this.value.emit(event.target?.value);
   }
   

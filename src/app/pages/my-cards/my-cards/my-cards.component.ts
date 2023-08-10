@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ICard } from 'src/app/interfaces/card.interface';
-import { removeFromCart } from 'src/app/store/cart.actions';
-import { selectorCart } from 'src/app/store/cart.selector';
-
+// import { removeFromCart } from 'src/app/store/cart.actions';
+import { selectorCart, selectorFilteredCart } from 'src/app/store/cart.selector';
+import {RemoveFromCart} from 'src/app/store/cart.actions';
 @Component({
   selector: 'app-my-cards',
   templateUrl: './my-cards.component.html',
@@ -12,20 +12,21 @@ import { selectorCart } from 'src/app/store/cart.selector';
 })
 
 export class MyCardsComponent implements OnInit {
-  myCardsList$:Observable<ICard[]>;
-  myCardsList:ICard[]=[];
+  allCartList$:Observable<ICard[]>;
+  allCartList:ICard[]=[];
+
   noCardsMessage="No cards found";
-  constructor(private store:Store<{cart:ICard[]}>) { 
-    this.myCardsList$ = store.select(selectorCart);
+  constructor( private store:Store<{cart:{allCart:ICard[]}}>) { 
+    this.allCartList$ = store.select(selectorFilteredCart);
   }
 
   ngOnInit(): void {
-    this.myCardsList$.subscribe((cards)=>{
-      this.myCardsList = cards;
+    this.allCartList$.subscribe((cards)=>{
+      this.allCartList = cards;
     });
   }
 
   removeFromCart(card:ICard){
-    this.store.dispatch(removeFromCart({card:card}));
+    this.store.dispatch(new RemoveFromCart(card));
   }
 }

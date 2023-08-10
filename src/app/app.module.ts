@@ -21,6 +21,7 @@ import {cartReducer} from './store/cart.reducer';
 import { EffectsModule } from '@ngrx/effects'
 import { CartEffects } from './store/cart.effect';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { CartState } from './interfaces/cart-state.interface';
 // firebase.initializeApp(environment.firebaseConfig);
 // const firebaseApp = initializeApp(environment.firebaseConfig);
 // const analytics = getAnalytics(firebaseApp);
@@ -46,7 +47,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
         BrowserAnimationsModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFireAnalyticsModule,
-        StoreModule.forRoot({
+        StoreModule.forRoot<{ cart: CartState }>({
             cart: cartReducer
         }),
         EffectsModule.forRoot([CartEffects]),

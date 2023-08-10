@@ -1,30 +1,29 @@
 import { ICard } from './../interfaces/card.interface';
 import {createEffect, Actions, ofType} from '@ngrx/effects';
-import {removeFromCart, addToCart, init, set} from './cart.actions';
+// import {removeFromCart, addToCart, init, set} from './cart.actions';
 import { of, switchMap, tap, withLatestFrom } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { selectorCart } from './cart.selector';
 import { Injectable } from '@angular/core';
-
+import {CartActionTypes, Set, AddToCart} from './cart.actions';
 @Injectable()
 export class CartEffects {
 
     loadCart = createEffect(()=>
         this.actions$.pipe(
-            ofType(init),
+            ofType(CartActionTypes.Init),
             switchMap(()=>{
                 const cartLocalStorage = localStorage.getItem('cart');
                 if(cartLocalStorage) {
-                    return of(set({cards:JSON.parse(cartLocalStorage)}));
+                    return of(new Set(JSON.parse(cartLocalStorage) as ICard[]));
                 }
-                return of(set({cards:[]}));
+                return of(new Set([]));
             })
-
         )
     );
 
     saveCart = createEffect(() => this.actions$.pipe(
-        ofType(addToCart, removeFromCart),
+        ofType(CartActionTypes.AddToCart, CartActionTypes.RemoveFromCart),
         withLatestFrom(this.store.select(selectorCart)),
         tap(([action,cart])=>{
             localStorage.setItem('cart', JSON.stringify(cart));

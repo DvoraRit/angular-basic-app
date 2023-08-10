@@ -3,7 +3,7 @@ import { ICard } from '../../interfaces/card.interface';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common'
 import { Store } from '@ngrx/store';
-import { addToCart } from 'src/app/store/cart.actions';
+import { AddToCart } from 'src/app/store/cart.actions';
 
 @Component({
   selector: 'app-cards',
@@ -20,7 +20,7 @@ export class CardsComponent {
   constructor(
     private actRoute: ActivatedRoute,
     private location: Location,
-    private store:Store<{cart:ICard[]}>
+    private store:Store<{cart:{allCart:ICard[]}}>
   ) {}
 
   ngOnInit() {
@@ -32,7 +32,8 @@ export class CardsComponent {
   }
 
   async addToCart(card: ICard) {
-    this.store.dispatch(addToCart({card:card}));
+    // this.store.dispatch(addToCart({card:card}));
+    this.store.dispatch(new AddToCart(card));
   }
   openModal() {
     this.openAddCardModal = !this.openAddCardModal;

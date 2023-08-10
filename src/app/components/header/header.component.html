@@ -3,7 +3,7 @@
     <h2 class="header-title">Welcome</h2>
     <div *ngFor="let item of headerTabs" class="menu-item-container">
       <a
-      id="menu-item"
+        id="menu-item"
         class="menu-item"
         [routerLink]="item.path"
         routerLinkActive="active"
@@ -17,6 +17,7 @@
   <app-search 
   [componentName]="componentName"
   [originalListItems]="listOfOptions"
+  (selectedValue)="onSelectedValue($event)"
   ></app-search>
 
   <div class="menu-item-container" data-testid="logout">

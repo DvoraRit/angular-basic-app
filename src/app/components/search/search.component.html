@@ -2,13 +2,15 @@
     <app-input 
     [type]="searchType" 
     [placeholder]="searchPlaceholder"
+    [selectedValue]="selectedOption"
     (input)="onSearchChange($event)"
+    (value)="onFilterItems($event)"
     (focus)="onSearchFocus($event)"
     #filter
     ></app-input>
     <div class="options-container" appPermission [show]="openOptions">
         <ul *ngIf="showListOptions">
-            <li *ngFor="let item of listItems">{{ item.name }}</li>
+            <li *ngFor="let item of listItems" (click)="onSelectItem(item)">{{ item.name }}</li>
         </ul>
     </div>
 </div>

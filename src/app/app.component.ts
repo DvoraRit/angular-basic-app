@@ -3,7 +3,7 @@ import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { AngularFireAnalytics } from '@angular/fire/compat/analytics';
 import { Store } from '@ngrx/store';
 import { ICard } from './interfaces/card.interface';
-import { init } from './store/cart.actions';
+import { Init } from './store/cart.actions';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +18,8 @@ export class AppComponent implements AfterViewInit, OnInit {
     ) {  }
 
   ngOnInit() {
-    this.store.dispatch(init());
+    // this.store.dispatch(init());
+    this.store.dispatch(new Init());
   }
   
   ngAfterViewInit() {
