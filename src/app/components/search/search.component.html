@@ -3,9 +3,12 @@
     [type]="searchType" 
     [placeholder]="searchPlaceholder"
     (input)="onSearchChange($event)"
+    (focus)="onSearchFocus($event)"
     #filter
     ></app-input>
-    <ul>
-        <li *ngFor="let item of listItems">{{ item.name }}</li>
-    </ul>
+    <div class="options-container" appPermission [show]="openOptions">
+        <ul *ngIf="showListOptions">
+            <li *ngFor="let item of listItems">{{ item.name }}</li>
+        </ul>
+    </div>
 </div>

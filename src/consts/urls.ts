@@ -9,6 +9,7 @@ export const urls = {
         home:"",
         login:"/login",
         cards:"/cards",
+        myCards:"/my-cards",
     },
     cards_json:"/cards.json",
     add_card:"/message_list.json",

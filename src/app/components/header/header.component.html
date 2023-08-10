@@ -14,6 +14,11 @@
       </a>
     </div>
   </div>
+  <app-search 
+  [componentName]="componentName"
+  [originalListItems]="listOfOptions"
+  ></app-search>
+
   <div class="menu-item-container" data-testid="logout">
     <a class="menu-item" (click)="logout()">Logout</a>
   </div>

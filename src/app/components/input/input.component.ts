@@ -7,8 +7,9 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   styleUrls: ['./input.component.css'],
   providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: InputComponent, multi: true }]
 })
-export class InputComponent implements ControlValueAccessor {
+export class InputComponent {
   @Output() value = new EventEmitter<string>();
+  @Output() focus = new EventEmitter<string>();
   @Input() placeholder: string = '';
   @Input() type: string = 'text';
   @Input() formControlName: string = '';
@@ -20,14 +21,8 @@ export class InputComponent implements ControlValueAccessor {
     this.innerValue = "aaaaa";
   }
 
-  registerOnChange(fn: any): void {
-    this.onChange = fn;
-  }
-
-  registerOnTouched(fn: any): void {
-    console.log("registerOnTouched");
-    
-    this.onTouched = fn;
+  onClick(event:any){
+    this.focus.emit(event);
   }
 
   onInputValueChange(event: any ) {

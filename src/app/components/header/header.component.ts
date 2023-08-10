@@ -1,36 +1,54 @@
-import { Component,EventEmitter,Output, signal } from '@angular/core';
+import { Component,EventEmitter,OnInit,Output, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ICard } from 'src/app/interfaces/card.interface';
 import { urls } from 'src/consts/urls';
-import {selectorCartLength} from '../../store/cart.selector';
+import {selectorCart, selectorCartLength} from '../../store/cart.selector';
 import {headerTabs} from '../../../consts/headerTabs';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
 @Output() tabSelected = new EventEmitter<string>();
-selectedTab: string = 'cards';
 numOfCardsInCart$:Observable<number>;
 numOfCardsInCart:number = 0;
 headerTabs = headerTabs;
-
+componentName:string='';
+listOfOptions$ : Observable<ICard[]>;
+listOfOptions:any[] = [];
 
 constructor(private router: Router, private store:Store<{cart:ICard[]}>) { 
   this.numOfCardsInCart$ = store.select(selectorCartLength);
+
+  //if on tab 'my-cards' get cards from store
+  if(this.router.url.includes(urls.routes.myCards)){
+    this.componentName = headerTabs.filter((tab)=>`/${tab.path}`===urls.routes.myCards)[0].name;
+    this.listOfOptions$ = store.select(selectorCart);
+  }
+  else{
+    this.listOfOptions$ = new Observable<ICard[]>();
+  }
 }
 
-onSelect(tab:string) {
-  this.tabSelected.emit(tab);
-  this.selectedTab = tab;
+ngOnInit(): void {
+  
+  this.listOfOptions$.subscribe((cards)=>{
+    this.listOfOptions = cards.map((item)=>{
+      return {
+        name:item.title,
+        key:item.id
+      }});
+  });
 }
+
 logout(){
   localStorage.removeItem("token");
   this.router.navigate([urls.routes.login]);
 }
+
 
 }

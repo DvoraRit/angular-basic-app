@@ -10,6 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { SearchComponent } from './components/search/search.component';
 import { AvatarComponent } from './components/avatar/avatar.component';
 import {PopUpModalComponent} from './components/popUpModel/popUpModal.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import {PopUpModalComponent} from './components/popUpModel/popUpModal.component'
         FormsModule,
         HttpClientModule,
         CardComponent,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        CommonModule
     ],
     exports: [
         ButtonComponent,

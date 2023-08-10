@@ -7,7 +7,6 @@ import {
   HostListener,
   HostBinding,
   Input,
-  OnChanges,
 } from '@angular/core';
 
 @Directive({
