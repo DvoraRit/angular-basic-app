@@ -28,7 +28,8 @@ import { CommonModule } from '@angular/common';
         HttpClientModule,
         CardComponent,
         ReactiveFormsModule,
-        CommonModule
+        CommonModule,
+        
     ],
     exports: [
         ButtonComponent,

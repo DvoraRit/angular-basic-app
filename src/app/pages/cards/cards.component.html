@@ -1,6 +1,6 @@
 <div>
     <div class="cards-header-container">
-        <h1>{{pageTitle}}</h1>
+        <h1 app-tooltip [tooltip]="'Hi there!'">{{pageTitle}}</h1>
         <app-button (onClick)="openModal()" id="add-card">add card</app-button>
     </div>
 
@@ -10,7 +10,7 @@
         <ng-container *ngIf="cards.length > 0 ">
             <app-card *ngFor="let card of cards" id="card">
                 <app-avatar [image]="card.image"></app-avatar>
-                <h2 class="card-title">{{card.title}}</h2>
+                <div class="card-title" [tooltip]="'Hi there!'">{{card.title}}</div>
                 <p class="card-description">{{card.sub_title}}</p>
                 <app-button (onClick)="addToCart(card)"
                 class="btn small"

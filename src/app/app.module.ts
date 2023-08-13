@@ -22,6 +22,7 @@ import { EffectsModule } from '@ngrx/effects'
 import { CartEffects } from './store/cart.effect';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { CartState } from './interfaces/cart-state.interface';
+import {TooltipModule} from './components/tooltip/tooltip.module';
 // firebase.initializeApp(environment.firebaseConfig);
 // const firebaseApp = initializeApp(environment.firebaseConfig);
 // const analytics = getAnalytics(firebaseApp);
@@ -44,6 +45,7 @@ import { CartState } from './interfaces/cart-state.interface';
         CommonModule,
         BrowserModule,
         FormsModule,
+        TooltipModule,
         BrowserAnimationsModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFireAnalyticsModule,

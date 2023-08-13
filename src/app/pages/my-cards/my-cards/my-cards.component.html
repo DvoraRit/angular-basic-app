@@ -4,7 +4,7 @@
         <ng-container *ngIf="(allCartList$ | async)as cards; else noCards">
             <app-card *ngFor="let card of cards">
                 <app-avatar [image]="card.image"></app-avatar>
-                <h2 class="card-title">{{card.title}}</h2>
+                <h2 class="card-title" >{{card.title}}</h2>
                 <p class="card-description">{{card.sub_title}}</p>
                 <app-button (onClick)="removeFromCart(card)"
                 class="btn small"
