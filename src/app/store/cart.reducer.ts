@@ -33,6 +33,8 @@ export function cartReducer(state=initialState, action:CartActions): CartState{
                 allCart: state.allCart.filter((c) => c.id !== removeFromCartAction.payload.id)
             }
         case CartActionTypes.UpdateSearchFilter:
+            console.log('UpdateSearchFilter');
+            
             const updateSearchFilterAction = action as UpdateSearchFilter;
             return {
                 ...state,

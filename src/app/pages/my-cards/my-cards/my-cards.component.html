@@ -1,9 +1,8 @@
 <div>
     <div class="cards-container">
-        <p *ngIf="allCartList.length === 0">{{noCardsMessage}}</p>
-      
-        <ng-container *ngIf="allCartList.length > 0 ">
-            <app-card *ngFor="let card of allCartList">
+
+        <ng-container *ngIf="(allCartList$ | async)as cards; else noCards">
+            <app-card *ngFor="let card of cards">
                 <app-avatar [image]="card.image"></app-avatar>
                 <h2 class="card-title">{{card.title}}</h2>
                 <p class="card-description">{{card.sub_title}}</p>
@@ -12,5 +11,9 @@
                 >remove from cart</app-button>
             </app-card>
         </ng-container>
+
+        <ng-template #noCards>
+            {{ noCardsMessage }}
+          </ng-template>
     </div>
 </div>

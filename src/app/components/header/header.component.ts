@@ -46,7 +46,6 @@ ngOnInit(): void {
 }
 
 onSelectedValue(value:string){
-  console.log("onSelectedValue", value);
   this.store.dispatch(new UpdateSearchFilter(value));
 }
 

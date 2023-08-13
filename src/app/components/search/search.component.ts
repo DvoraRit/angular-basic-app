@@ -49,7 +49,6 @@ export class SearchComponent implements OnChanges, OnInit {
   }
 
   onFilterItems(filterEvent: string): void {
-    console.log("onFilterItems");
     this.selectedValue.emit(filterEvent);
   }
     

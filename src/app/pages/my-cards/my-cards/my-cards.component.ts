@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ICard } from 'src/app/interfaces/card.interface';
@@ -11,20 +11,26 @@ import {RemoveFromCart} from 'src/app/store/cart.actions';
   styleUrls: ['./my-cards.component.css']
 })
 
-export class MyCardsComponent implements OnInit {
+export class MyCardsComponent implements OnInit, AfterContentInit {
   allCartList$:Observable<ICard[]>;
-  allCartList:ICard[]=[];
 
   noCardsMessage="No cards found";
   constructor( private store:Store<{cart:{allCart:ICard[]}}>) { 
-    this.allCartList$ = store.select(selectorFilteredCart);
+    this.allCartList$ = new Observable<ICard[]>();
+    console.log("constructor");
+    
   }
 
   ngOnInit(): void {
-    this.allCartList$.subscribe((cards)=>{
-      this.allCartList = cards;
-    });
+    this.allCartList$ = this.store.select(selectorFilteredCart);
+    console.log("ngOnInit");
   }
+
+  ngAfterContentInit(): void {
+   console.log("ngAfterContentInit");
+   
+  }
+
 
   removeFromCart(card:ICard){
     this.store.dispatch(new RemoveFromCart(card));

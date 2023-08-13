@@ -17,9 +17,11 @@ export const selectorCart = createSelector(
 export const selectorFilteredCart = createSelector(
       selectCartState,
       (state: CartState) => {
-          const searchFilter = state.searchFilter.toLowerCase().trim();
+        
+        const searchFilter = state.searchFilter.toLowerCase().trim();
+        console.log('selectorFilteredCart');
+
           return state.allCart.filter(card => card.title.toLowerCase().includes(searchFilter));
       }
   );
-// export const selectorCart = (state:{cart:{allCart:ICard[]}}) => state.cart;
-// export const selectorCartLength = (state:{cart:{allCart:ICard[]}}) => state.cart.allCart.length;
+
